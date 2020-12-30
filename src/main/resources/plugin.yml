@@ -1,0 +1,20 @@
+name: PlayerGUIAdvanced
+version: ${project.version}
+main: me.loving11ish.playerguiadvanced.PlayerGUIAdvanced
+api-version: 1.13
+softdepend: [ SuperVanish, PremiumVanish ]
+authors: [ Loving11ish ]
+description: A simple GUI that shows admins information about all the players on the server and offers some simple moderation features.
+commands:
+  pl:
+    description: The main command.
+    usage: /pl <command>
+  players:
+    description: Open the Player list GUI.
+    usage: </command>
+  actions:
+    description: Open the Actions GUI for a chosen player.
+    usage: /actions <player>
+  punish:
+    description: Open the Punish GUI for a chosen player.
+    usage: /punish <player>

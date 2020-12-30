@@ -1,0 +1,122 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                    ----[PlayerGUIAdvance]----                                     #
+#                                     ----[By Loving11ish]----                                      #
+#                                   ----[mc.crapticraft.com]----                                    #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Do you wish to use the GUI based /op feature?
+Enable-op: true
+#Do you wish to use the GUI based /deop feature?
+Enable-deop: true
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Do you wish to use the GUI based player inventory view feature?
+Enable-player-inventory: true
+#Do you wish to use the GUI based player Enderchest view feature?
+Enable-player-enderchest: true
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Do you wish to use the GUI based /mute feature?
+Enable-mute: true
+#Do you wish to use the GUI based /unmute feature?
+Enable-unmute: true
+
+Mute-command: 'mute %target% You have been muted by an operator'
+Unmute-command: 'unmute %target%'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Do you wish to use the GUI based ban manager?
+Enable-ban-manager: true
+
+Enable-ban-1: true
+Ban-length-1-material: 'PAPER'
+Ban-length-1-name: "&cBan For 1 Hour!"
+Ban-length-1-lore-1: "&aThis performs the /ban command"
+Ban-length-1-lore-2: "&aand is issued by you, not the console."
+Ban-length-1-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-1-command: 'ban %target% 1h You were temporarily banned for 1 hour by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-2: true
+Ban-length-2-material: 'IRON_INGOT'
+Ban-length-2-name: "&cBan For 1 Day!"
+Ban-length-2-lore-1: "&aThis performs the /ban command"
+Ban-length-2-lore-2: "&aand is issued by you, not the console."
+Ban-length-2-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-2-command: 'ban %target% 1d You were temporarily banned for 1 day by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-3: true
+Ban-length-3-material: 'ANVIL'
+Ban-length-3-name: "&cBan For 3 Days!"
+Ban-length-3-lore-1: "&aThis performs the /ban command"
+Ban-length-3-lore-2: "&aand is issued by you, not the console."
+Ban-length-3-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-3-command: 'ban %target% 3d You were temporarily banned for 3 days by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-4: true
+Ban-length-4-material: 'IRON_BLOCK'
+Ban-length-4-name: "&cBan For 7 Days!"
+Ban-length-4-lore-1: "&aThis performs the /ban command"
+Ban-length-4-lore-2: "&aand is issued by you, not the console."
+Ban-length-4-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-4-command: 'ban %target% 7d You were temporarily banned for 7 days by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-5: true
+Ban-length-5-material: 'OAK_PLANKS'
+Ban-length-5-name: "&cBan For 2 Weeks!"
+Ban-length-5-lore-1: "&aThis performs the /ban command"
+Ban-length-5-lore-2: "&aand is issued by you, not the console."
+Ban-length-5-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-5-command: 'ban %target% 2w You were temporarily banned for 2 weeks by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-6: true
+Ban-length-6-material: 'STONE'
+Ban-length-6-name: "&cBan For 1 Month!"
+Ban-length-6-lore-1: "&aThis performs the /ban command"
+Ban-length-6-lore-2: "&aand is issued by you, not the console."
+Ban-length-6-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-6-command: 'ban %target% 1month You were temporarily banned for 1 month by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-7: true
+Ban-length-7-material: 'MAGMA_BLOCK'
+Ban-length-7-name: "&cBan For 3 Months!"
+Ban-length-7-lore-1: "&aThis performs the /ban command"
+Ban-length-7-lore-2: "&aand is issued by you, not the console."
+Ban-length-7-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-7-command: 'ban %target% 3month You were temporarily banned for 3 months by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-8: true
+Ban-length-8-material: 'OBSIDIAN'
+Ban-length-8-name: "&cBan For 6 Months!"
+Ban-length-8-lore-1: "&aThis performs the /ban command"
+Ban-length-8-lore-2: "&aand is issued by you, not the console."
+Ban-length-8-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-8-command: 'ban %target% 6month You were temporarily banned for 6 months by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-9: true
+Ban-length-9-material: 'BEDROCK'
+Ban-length-9-name: "&cPerm Ban This Player!"
+Ban-length-9-lore-1: "&aThis performs the /ban command"
+Ban-length-9-lore-2: "&aand is issued by you, not the console."
+Ban-length-9-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+
+Ban-length-9-command: 'ban %target% You were permanently banned by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Do you wish to have the banned player say a final message?
+Enable-banned-player-message: true
+
+Banned-player-message: "&cOh dear, I got banned! :-("
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
