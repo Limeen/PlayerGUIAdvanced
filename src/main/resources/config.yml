@@ -3,6 +3,7 @@
 #                                    ----[PlayerGUIAdvance]----                                     #
 #                                     ----[By Loving11ish]----                                      #
 #                                   ----[mc.crapticraft.com]----                                    #
+#                                   ----[Plugin Config File]----                                    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #Do you wish to use the GUI based /op feature?
@@ -119,4 +120,124 @@ Ban-length-9-command: 'ban %target% You were permanently banned by an operator'
 Enable-banned-player-message: true
 
 Banned-player-message: "&cOh dear, I got banned! :-("
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                    ----[PlayerGUIAdvance]----                                     #
+#                                     ----[By Loving11ish]----                                      #
+#                                   ----[mc.crapticraft.com]----                                    #
+#                                 ----[Plugin Messages Config]----                                  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#GUI Name configurations.
+
+#Player list GUI name:
+Player-list-menu-title: "&bPlayer List"
+
+#Actions GUI name:
+#If an error occurs, ensure that the '%target%' is present within the title name.
+Actions-menu-title: "&bActions: %target%"
+
+#Ban manager GUI name:
+#If an error occurs, ensure that the '%target%' is present within the title name.
+Ban-manager-nemu-title: "&bBan: %target%"
+
+#Punish menu GUI name:
+#If an error occurs, ensure that the '%target%' is present within the title name.
+Punish-menu-title: "&bPunish: %target%"
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#Plugin messages
+
+Player-list-menu-last-page: "&7You are on the last page."
+Player-list-menu-first-page: "&7You are on the first page."
+Player-list-command-no-permission: "&4You do not have the permission &eplayergui.use &4needed to run that command"
+
+#If an error occurs, ensure that the '%target%' is present
+Actions-command-invalid-player: "&cThe player &e%target% &ccould not be found!"
+Actions-command-no-player-provided: "&cPlease provide a player to moderate. /actions <player>"
+Actions-command-no-permission: "&4You do not have the permission &eplayergui.mod &4needed to run that command"
+
+#If an error occurs, ensure that the '%target%' is present
+Punish-command-invalid-player: "&cThe player &e%target% &ccould not be found!"
+Punish-command-no-player-provided: "&cPlease provide a player to moderate. /punish <player>"
+Punish-command-no-permission: "&4You do not have the permission &eplayergui.ban &4needed to run that command"
+
+Help-command-no-permission: "&4You do not have the permission &eplayergui.help &4needed to run that command"
+
+Reload-command-no-permission: "&4You do not have the permission &eplayergui.reload &4needed to run that command"
+
+#Show-command-VanishAPI-not-detected:
+Show-1: "&4This command is only active if either SuperVanish or PremiumVanish are installed!"
+Show-2: "&4SuperVanish: &dhttps://www.spigotmc.org/resources/supervanish-be-invisible.1331/"
+Show-3: "&4PremiumVanish: &dhttps://www.spigotmc.org/resources/premiumvanish-stay-hidden-bungee-support.14404/"
+Show-command-player-visible: "&eYou are now visible to other players"
+Show-command-no-permission: "&4You do not have the permission &eplayergui.show &4needed to run that command"
+
+#Vanish-command-VanishAPI-not-detected:
+Vanish-1: "&4This command is only active if either SuperVanish or PremiumVanish are installed!"
+Vanish-2: "&4SuperVanish: &dhttps://www.spigotmc.org/resources/supervanish-be-invisible.1331/"
+Vanish-3: "&4PremiumVanish: &dhttps://www.spigotmc.org/resources/premiumvanish-stay-hidden-bungee-support.14404/"
+Vanish-command-player-invisible: "&eYou are now invisible to other players"
+Vanish-command-no-permission: "&4You do not have the permission &eplayergui.vanish &4needed to run that command"
+
+#Plugin-update-available:
+Update-1: "&4*-------------------------------------------*"
+Update-2: "&b[PlayerGUIAdvanced] &c- A new version is available!"
+Update-3: "&4*-------------------------------------------*"
+
+#Plugin-no-new-update:
+No-update-1: "&a*-------------------------------------------*"
+No-update-2: "&b[PlayerGUIAdvanced] &a- Plugin is up to date!"
+No-update-3: "&a*-------------------------------------------*"
+Update-check-failure: "&b[PlayerGUIAdvanced] &4- Unable to check for updates! - &c"
+
+Player-only-command: "&4That command can only be executed by a player."
+
+Plugin-reload-successful: "&aThe config file has been reloaded!"
+
+#Incorrect-command-syntax-console:
+Syntax-error-1: "&4Please provide an argument!"
+Syntax-error-2: "&4pl reload"
+Syntax-error-3: "&4pl help"
+
+Targeted-player-op-successful: "&ePlayer %target% has been successfully made an op!"
+Targeted-player-deop-successful: "&ePlayer %target% has been successfully removed from op!"
+
+Player-op-no-permission: "&4You do not have the permission &eplayergui.op"
+Player-deop-no-permission: "&4You do not have the permission &eplayergui.deop"
+Player-ban-no-permission: "&4You do not have the permission &eplayergui.ban"
+
+Target-ban-exempt: "&cThat player is exempt from bans!"
+
+Disabled-GUI-Feature: "&cThis feature has been disabled by an admin!"
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#Plugin-help-chat-menu
+Help-1: "&e[---------------- &b[PlayerGUIAdvanced] &e-----------------]"
+Help-2: "&f/actions <player> &7- &dThis command opens up the Actions GUI."
+Help-3: "&f/punish <player> &7- &dThis command opens up the Punish GUI."
+Help-4: "&f/players &7- &dThis command opens up the Player List GUI."
+Help-5: "&f/pl reload &7- &dThis command reloads the plugin config file."
+Help-6: "&f/pl vanish &7- &dThis command sets you into vanish."
+Help-7: "&f/pl show &7- &dThis command sets you out of vanish."
+Help-8: "&f/pl help &7- &dThis command shows this help menu."
+Help-9: "&e[-------------------- &bPermissions &e---------------------]"
+Help-10: "&f                               playergui.use"
+Help-11: "&f                               playergui.mod"
+Help-12: "&f                               playergui.ban"
+Help-13: "&f                               playergui.op"
+Help-14: "&f                               playergui.deop"
+Help-15: "&f                               playergui.exempt"
+Help-16: "&f                               playergui.vanish"
+Help-17: "&f                               playergui.show"
+Help-18: "&f                               playergui.help"
+Help-19: "&f                               playergui.reload"
+Help-20: "&f                               playergui.update"
+Help-21: "&e[----------------------------------------------------]"
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#

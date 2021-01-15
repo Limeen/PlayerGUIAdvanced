@@ -2,6 +2,7 @@ package me.loving11ish.playerguiadvanced.Commands.SubCommands;
 
 import me.loving11ish.playerguiadvanced.Commands.SubCommand;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -29,9 +30,9 @@ public class Reload extends SubCommand {
     public void perform(Player player, String[] args) {
         if (player.hasPermission("playergui.reload")){
             PlayerGUIAdvanced.getPlugin().reloadConfig();
-            player.sendMessage(ChatColor.GREEN + "The config file has been reloaded!");
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Plugin-reload-successful")));
         }else {
-            player.sendMessage(ChatColor.DARK_RED + "You do not have the permission " + ChatColor.YELLOW +  "playergui.reload "  + ChatColor.DARK_RED + "needed to run that command");
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Reload-command-no-permission")));
         }
     }
 

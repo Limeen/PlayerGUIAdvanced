@@ -1,6 +1,8 @@
 package me.loving11ish.playerguiadvanced.Commands.ConsoleCommands;
 
 import me.loving11ish.playerguiadvanced.Commands.ConsoleCommand;
+import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.ChatColor;
 
 public class Help extends ConsoleCommand {
@@ -22,26 +24,26 @@ public class Help extends ConsoleCommand {
 
     @Override
     public void perform(String[] args) {
-        System.out.println(ChatColor.YELLOW + "[---------------- " + ChatColor.AQUA + "[PlayerGUIAdvanced] " + ChatColor.YELLOW + "-----------------]");
-        System.out.println(ChatColor.WHITE + "/actions <player>" + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command opens up the Actions GUI.");
-        System.out.println(ChatColor.WHITE + "/punish <player> " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command opens up the Punish GUI.");
-        System.out.println(ChatColor.WHITE + "/players " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command opens up the Player List GUI.");
-        System.out.println(ChatColor.WHITE + "/pl reload" + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command reloads the plugin config file.");
-        System.out.println(ChatColor.WHITE + "/pl vanish" + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command sets you into vanish.");
-        System.out.println(ChatColor.WHITE + "/pl show" + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command sets you out of vanish.");
-        System.out.println(ChatColor.WHITE + "/pl help " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command shows this help menu.");
-        System.out.println(ChatColor.YELLOW + "[-------------------- " + ChatColor.AQUA + "Permissions " + ChatColor.YELLOW + "---------------------]");
-        System.out.println(ChatColor.WHITE + "                     playergui.use");
-        System.out.println(ChatColor.WHITE + "                     playergui.mod");
-        System.out.println(ChatColor.WHITE + "                     playergui.ban");
-        System.out.println(ChatColor.WHITE + "                     playergui.op");
-        System.out.println(ChatColor.WHITE + "                     playergui.deop");
-        System.out.println(ChatColor.WHITE + "                     playergui.exempt");
-        System.out.println(ChatColor.WHITE + "                     playergui.vanish");
-        System.out.println(ChatColor.WHITE + "                     playergui.show");
-        System.out.println(ChatColor.WHITE + "                     playergui.help");
-        System.out.println(ChatColor.WHITE + "                     playergui.reload");
-        System.out.println(ChatColor.WHITE + "                     playergui.update");
-        System.out.println(ChatColor.YELLOW + "[----------------------------------------------------]");
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-1")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-2")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-3")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-4")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-5")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-6")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-7")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-8")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-9")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-10")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-11")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-12")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-13")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-14")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-15")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-16")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-17")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-18")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-19")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-20")));
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-21")));
     }
 }

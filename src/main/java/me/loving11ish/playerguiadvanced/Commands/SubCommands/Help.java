@@ -1,6 +1,8 @@
 package me.loving11ish.playerguiadvanced.Commands.SubCommands;
 
 import me.loving11ish.playerguiadvanced.Commands.SubCommand;
+import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -27,29 +29,29 @@ public class Help extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (player.hasPermission("playergui.help")) {
-            player.sendMessage(ChatColor.YELLOW + "[---------------- " + ChatColor.AQUA + "[PlayerGUIAdvanced] " + ChatColor.YELLOW + "-----------------]");
-            player.sendMessage(ChatColor.WHITE + "/actions <player>" + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command opens up the Actions GUI.");
-            player.sendMessage(ChatColor.WHITE + "/punish <player> " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command opens up the Punish GUI.");
-            player.sendMessage(ChatColor.WHITE + "/players " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command opens up the Player List GUI.");
-            player.sendMessage(ChatColor.WHITE + "/pl reload" + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command reloads the plugin config file.");
-            player.sendMessage(ChatColor.WHITE + "/pl vanish" + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command sets you into vanish.");
-            player.sendMessage(ChatColor.WHITE + "/pl show" + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command sets you out of vanish.");
-            player.sendMessage(ChatColor.WHITE + "/pl help " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command shows this help menu.");
-            player.sendMessage(ChatColor.YELLOW + "[-------------------- " + ChatColor.AQUA + "Permissions " + ChatColor.YELLOW + "---------------------]");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.use");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.mod");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.ban");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.op");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.deop");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.exempt");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.vanish");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.show");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.help");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.reload");
-            player.sendMessage(ChatColor.WHITE + "                               playergui.update");
-            player.sendMessage(ChatColor.YELLOW + "[----------------------------------------------------]");
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-1")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-2")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-3")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-4")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-5")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-6")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-7")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-8")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-9")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-10")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-11")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-12")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-13")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-14")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-15")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-16")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-17")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-18")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-19")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-20")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-21")));
         } else {
-            player.sendMessage(ChatColor.DARK_RED + "You do not have the permission " + ChatColor.YELLOW + "playergui.help " + ChatColor.DARK_RED + "required to execute that command!");
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Help-command-no-permission")));
         }
     }
 

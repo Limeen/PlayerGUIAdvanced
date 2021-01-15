@@ -1,5 +1,7 @@
 package me.loving11ish.playerguiadvanced.UpdateSystem;
 
+import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
@@ -27,9 +29,7 @@ public class UpdateChecker {
                     consumer.accept(scanner.next());
                 }
             } catch (IOException exception) {
-                System.out.println(ChatColor.RED + "*-------------------------------------------*");
-                System.out.println(ChatColor.RED + "[PlayerGUIAdvanced] - Unable to check for updates: " + exception.getMessage());
-                System.out.println(ChatColor.RED + "*-------------------------------------------*");
+                System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Update-check-failure") + exception.getMessage()));
             }
         });
     }

@@ -1,7 +1,7 @@
 package me.loving11ish.playerguiadvanced.UpdateSystem;
 
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
-import org.bukkit.ChatColor;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,10 +20,14 @@ public class JoinEvent implements Listener {
         Player player = event.getPlayer();
         if (player.hasPermission("playergui.update")) {
             new UpdateChecker(plugin, 74596).getVersion(version -> {
-                if (!(plugin.getDescription().getVersion().equalsIgnoreCase(version))) {
-                    player.sendMessage(ChatColor.DARK_RED + "*-------------------------------------------*");
-                    player.sendMessage(ChatColor.AQUA + "       [PlayerGUIAdvanced] " + ChatColor.RED + "- A new version is available!");
-                    player.sendMessage(ChatColor.DARK_RED + "*-------------------------------------------*");
+                try {
+                    if (!(plugin.getDescription().getVersion().equalsIgnoreCase(version))) {
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Update-1")));
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Update-2")));
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Update-3")));
+                    }
+                }catch (NullPointerException e){
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Update-check-failure")));
                 }
             });
         }

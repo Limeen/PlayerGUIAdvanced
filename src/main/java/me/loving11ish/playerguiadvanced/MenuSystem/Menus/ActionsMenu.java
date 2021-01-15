@@ -4,6 +4,7 @@ import de.myzelyam.api.vanish.VanishAPI;
 import me.loving11ish.playerguiadvanced.MenuSystem.Menu;
 import me.loving11ish.playerguiadvanced.MenuSystem.PlayerMenuUtility;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -26,7 +27,7 @@ public class ActionsMenu extends Menu {
 
     @Override
     public String getMenuName() {
-        return ChatColor.AQUA + "Actions: " + playerMenuUtility.getPlayerToMod().getName();
+        return ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Actions-menu-title").replace("%target%",playerMenuUtility.getPlayerToMod().getName()));
     }
 
     @Override
@@ -66,12 +67,12 @@ public class ActionsMenu extends Menu {
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-op")){
                     if (player.hasPermission("playergui.op")){
                         getServer().dispatchCommand(Bukkit.getConsoleSender(), "op " + PlayerToOp);
-                        player.sendMessage(ChatColor.YELLOW + "Player " + PlayerToOp + " has been successfully made an op!");
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Targeted-player-op-successful").replace("%target%", PlayerToOp)));
                     }else {
-                        player.sendMessage(ChatColor.DARK_RED + "You do not have the permission 'playergui.op'.");
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-op-no-permission")));
                     }
                 }else {
-                    player.sendMessage(ChatColor.DARK_RED + "This feature has been disabled by an admin!");
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                     player.closeInventory();
                 }
                 break;
@@ -79,12 +80,12 @@ public class ActionsMenu extends Menu {
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-deop")){
                     if (player.hasPermission("playergui.deop")){
                         getServer().dispatchCommand(Bukkit.getConsoleSender(), "deop " + PlayerToOp);
-                        player.sendMessage(ChatColor.YELLOW + "Player " + PlayerToOp + " has been successfully removed from op!");
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Targeted-player-deop-successful").replace("%target%", PlayerToOp)));
                     }else {
-                        player.sendMessage(ChatColor.DARK_RED + "You do not have the permission 'playergui.deop'.");
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-deop-no-permission")));
                     }
                 }else {
-                    player.sendMessage(ChatColor.DARK_RED + "This feature has been disabled by an admin!");
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                     player.closeInventory();
                 }
                 break;
@@ -96,11 +97,11 @@ public class ActionsMenu extends Menu {
                     if (player.hasPermission("playergui.ban")){
                         new BanManagerMenu(playerMenuUtility).open();
                     }else {
-                        player.sendMessage(ChatColor.DARK_RED + "You do not have the permission 'playergui.ban'.");
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-ban-no-permission")));
                         player.closeInventory();
                     }
                 }else {
-                    player.sendMessage(ChatColor.DARK_RED + "This feature has been disabled by an admin!");
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                     player.closeInventory();
                 }
                 break;
@@ -109,7 +110,7 @@ public class ActionsMenu extends Menu {
                     player.performCommand(PlayerGUIAdvanced.getPlugin().getConfig().getString("Mute-command").replace("%target%", PlayerToMute));
                     player.closeInventory();
                 }else {
-                    player.sendMessage(ChatColor.DARK_RED + "This feature has been disabled by an admin!");
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                     player.closeInventory();
                 }
                 break;
@@ -118,7 +119,7 @@ public class ActionsMenu extends Menu {
                     player.performCommand(PlayerGUIAdvanced.getPlugin().getConfig().getString("Unmute-command").replace("%target%", PlayerToMute));
                     player.closeInventory();
                 }else {
-                    player.sendMessage(ChatColor.DARK_RED + "This feature has been disabled by an admin!");
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                     player.closeInventory();
                 }
                 break;
@@ -131,7 +132,7 @@ public class ActionsMenu extends Menu {
                 player.openInventory(PlayerEnder);
                 break;
             case RED_STAINED_GLASS_PANE:
-                player.sendMessage(ChatColor.DARK_RED + "This feature has been disabled by an admin!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                 player.closeInventory();
                 break;
         }

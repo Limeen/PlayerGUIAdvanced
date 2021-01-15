@@ -1,6 +1,8 @@
 package me.loving11ish.playerguiadvanced.Commands.ConsoleCommands;
 
 import me.loving11ish.playerguiadvanced.Commands.ConsoleCommand;
+import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.ChatColor;
 
 public class Show extends ConsoleCommand {
@@ -22,7 +24,7 @@ public class Show extends ConsoleCommand {
 
     @Override
     public void perform(String[] args) {
-        System.out.println(ChatColor.DARK_RED + "That command can only be executed by a player!");
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-only-command")));
     }
 
 }

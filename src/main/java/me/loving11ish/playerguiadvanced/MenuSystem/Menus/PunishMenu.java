@@ -3,6 +3,7 @@ package me.loving11ish.playerguiadvanced.MenuSystem.Menus;
 import me.loving11ish.playerguiadvanced.MenuSystem.Menu;
 import me.loving11ish.playerguiadvanced.MenuSystem.PlayerMenuUtility;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -25,7 +26,7 @@ public class PunishMenu extends Menu {
 
     @Override
     public String getMenuName() {
-        return ChatColor.AQUA + "Punish: " + playerMenuUtility.getPlayerToMod().getName();
+        return ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-menu-title").replace("%target%", playerMenuUtility.getPlayerToMod().getName()));
     }
 
     @Override
@@ -51,7 +52,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-2-material")))){
@@ -64,7 +65,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-3-material")))){
@@ -77,7 +78,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-4-material")))) {
@@ -90,7 +91,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-5-material")))) {
@@ -103,7 +104,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-6-material")))) {
@@ -116,7 +117,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-7-material")))) {
@@ -129,7 +130,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-8-material")))) {
@@ -142,7 +143,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-9-material")))) {
@@ -155,7 +156,7 @@ public class PunishMenu extends Menu {
                     player.closeInventory();
                 }
             }else {
-                player.sendMessage(ChatColor.RED + "That player is exempt from bans!");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Target-ban-exempt")));
                 player.closeInventory();
             }
         }

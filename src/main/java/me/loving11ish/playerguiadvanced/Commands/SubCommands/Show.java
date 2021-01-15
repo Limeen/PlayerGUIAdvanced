@@ -2,8 +2,11 @@ package me.loving11ish.playerguiadvanced.Commands.SubCommands;
 
 import de.myzelyam.api.vanish.VanishAPI;
 import me.loving11ish.playerguiadvanced.Commands.SubCommand;
+import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -28,17 +31,19 @@ public class Show extends SubCommand {
 
     @Override
     public void perform(Player player, String[] args) {
+        GameMode gmsp = (GameMode) PlayerGUIAdvanced.getPlugin().getConfig().get("Default-show-gamemode");
         if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
             if (player.hasPermission("playergui.show")){
                 VanishAPI.showPlayer(player);
-                player.sendMessage(ChatColor.YELLOW + "You are now visible to other players");
+                player.setGameMode(GameMode.SURVIVAL);
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Show-command-player-visible")));
             }else {
-                player.sendMessage(ChatColor.DARK_RED + "You do not have the permission " + ChatColor.YELLOW +  "playergui.show "  + ChatColor.DARK_RED + "needed to run that command");
+                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Show-command-no-permission")));
             }
         }else {
-            player.sendMessage(ChatColor.DARK_RED + "This command is only active if either SuperVanish or PremiumVanish are installed!");
-            player.sendMessage(ChatColor.DARK_RED + "SuperVanish: " + ChatColor.LIGHT_PURPLE + "https://www.spigotmc.org/resources/supervanish-be-invisible.1331/");
-            player.sendMessage(ChatColor.DARK_RED + "PremiumVanish: " + ChatColor.LIGHT_PURPLE + "https://www.spigotmc.org/resources/premiumvanish-stay-hidden-bungee-support.14404/");
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Show-1")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Show-2")));
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Show-3")));
         }
     }
 

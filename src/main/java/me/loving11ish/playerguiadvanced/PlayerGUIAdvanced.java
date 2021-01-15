@@ -8,6 +8,7 @@ import me.loving11ish.playerguiadvanced.Listeners.MenuListeners;
 import me.loving11ish.playerguiadvanced.MenuSystem.PlayerMenuUtility;
 import me.loving11ish.playerguiadvanced.UpdateSystem.JoinEvent;
 import me.loving11ish.playerguiadvanced.UpdateSystem.UpdateChecker;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -25,21 +26,20 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        //Load the config file
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
+        //VanishAPI hook check
         System.out.println("-------------------------------------------");
         if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish")){
             System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Successfully hooked into SuperVanish");
             System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Enabling VanishAPI features");
-
         }
         if (Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
             System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Successfully hooked into PremiumVanish");
             System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Enabling VanishAPI features");
         }
-
-        //Load the config file
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
 
         //Register commands here
         plugin = this;
@@ -61,13 +61,13 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
         //Check for available updates
         new UpdateChecker(this, 74596).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
-                System.out.println(ChatColor.GREEN + "*-------------------------------------------*");
-                System.out.println(ChatColor.GREEN + "[PlayerGUIAdvanced] - Plugin is up to date");
-                System.out.println(ChatColor.GREEN + "*-------------------------------------------*");
+                System.out.println(ColorUtils.translateColorCodes(getConfig().getString("No-update-1")));
+                System.out.println(ColorUtils.translateColorCodes(getConfig().getString("No-update-2")));
+                System.out.println(ColorUtils.translateColorCodes(getConfig().getString("No-update-3")));
             }else {
-                System.out.println(ChatColor.RED + "*-------------------------------------------*");
-                System.out.println(ChatColor.RED + "[PlayerGUIAdvanced] - A new version is available!");
-                System.out.println(ChatColor.RED + "*-------------------------------------------*");
+                System.out.println(ColorUtils.translateColorCodes(getConfig().getString("Update-1")));
+                System.out.println(ColorUtils.translateColorCodes(getConfig().getString("Update-2")));
+                System.out.println(ColorUtils.translateColorCodes(getConfig().getString("Update-3")));
             }
         });
     }

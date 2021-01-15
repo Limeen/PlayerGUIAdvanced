@@ -4,6 +4,7 @@ import de.myzelyam.api.vanish.VanishAPI;
 import me.loving11ish.playerguiadvanced.MenuSystem.PaginatedMenu;
 import me.loving11ish.playerguiadvanced.MenuSystem.PlayerMenuUtility;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -28,7 +29,7 @@ public class PlayerListMenu extends PaginatedMenu {
 
     @Override
     public String getMenuName() {
-        return ChatColor.AQUA + "Player List";
+        return ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-list-menu-title"));
     }
 
     @Override
@@ -57,7 +58,7 @@ public class PlayerListMenu extends PaginatedMenu {
         }else if(event.getCurrentItem().getType().equals(Material.STONE_BUTTON)){
             if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equalsIgnoreCase("Previous Page")){
                 if (page == 0){
-                    player.sendMessage(ChatColor.GRAY + "You are already on the first page.");
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-list-menu-first-page")));
                 }else{
                     page = page - 1;
                     super.open();
@@ -67,7 +68,7 @@ public class PlayerListMenu extends PaginatedMenu {
                     page = page + 1;
                     super.open();
                 }else{
-                    player.sendMessage(ChatColor.GRAY + "You are on the last page.");
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-list-menu-last-page")));
                 }
             }
         }

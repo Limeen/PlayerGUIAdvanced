@@ -2,6 +2,7 @@ package me.loving11ish.playerguiadvanced.Commands.ConsoleCommands;
 
 import me.loving11ish.playerguiadvanced.Commands.ConsoleCommand;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
+import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.ChatColor;
 
 public class Reload extends ConsoleCommand {
@@ -24,6 +25,6 @@ public class Reload extends ConsoleCommand {
     @Override
     public void perform(String[] args) {
         PlayerGUIAdvanced.getPlugin().reloadConfig();
-        System.out.println(ChatColor.GREEN + "The config file has been reloaded!");
+        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Plugin-reload-successful")));
     }
 }
