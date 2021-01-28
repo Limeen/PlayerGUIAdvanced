@@ -45,9 +45,14 @@ public class ActionsMenu extends Menu {
         String PlayerToMute = event.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
         switch (event.getCurrentItem().getType()){
             case WOODEN_AXE:
-                player.performCommand("kick " + playerToKick + " You were kicked by an operator");
-                player.sendMessage(ChatColor.RED + "You kicked " + ChatColor.LIGHT_PURPLE + playerToKick);
-                player.closeInventory();
+                if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-kick")){
+                    player.performCommand(PlayerGUIAdvanced.getPlugin().getConfig().getString("Kick-command").replace("%target%", playerToKick));
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Successfully-kicked-player-chat").replace("%target%", playerToKick)));
+                    player.closeInventory();
+                }else {
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
+                    player.closeInventory();
+                }
                 break;
             case PLAYER_HEAD:
                 int x = target.getLocation().getBlockX();
@@ -90,7 +95,7 @@ public class ActionsMenu extends Menu {
                 }
                 break;
             case BARRIER:
-                player.closeInventory();
+                new PlayerListMenu(playerMenuUtility).open();
                 break;
             case BEDROCK:
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-ban-manager")){
@@ -255,9 +260,13 @@ public class ActionsMenu extends Menu {
         Disabledmeta.setDisplayName(ChatColor.RED + "This feature has been disabled!");
         Disabled.setItemMeta(Disabledmeta);
 
-        inventory.setItem(0, Kick);
         inventory.setItem(4, PlayerName);
         inventory.setItem(13, Back);
+        if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-kick")){
+            inventory.setItem(0, Kick);
+        }else {
+            inventory.setItem(0, Disabled);
+        }
         if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-player-inventory")){
             inventory.setItem(7, PlayerInv);
         }else {

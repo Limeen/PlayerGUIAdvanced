@@ -30,6 +30,13 @@ Unmute-command: 'unmute %target%'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Do you wish to use the GUI based /kick feature?
+Enable-kick: true
+
+Kick-command: 'kick %target% You were kicked by an operator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #Do you wish to use the GUI based ban manager?
 Enable-ban-manager: true
 
@@ -206,6 +213,8 @@ Syntax-error-3: "&4pl help"
 
 Targeted-player-op-successful: "&ePlayer %target% has been successfully made an op!"
 Targeted-player-deop-successful: "&ePlayer %target% has been successfully removed from op!"
+
+Successfully-kicked-player-chat: "&cYou kicked &d%target%"
 
 Player-op-no-permission: "&4You do not have the permission &eplayergui.op"
 Player-deop-no-permission: "&4You do not have the permission &eplayergui.deop"

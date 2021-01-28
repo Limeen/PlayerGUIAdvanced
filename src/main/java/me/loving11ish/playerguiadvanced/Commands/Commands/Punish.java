@@ -17,17 +17,21 @@ public class Punish implements CommandExecutor {
         if (sender instanceof Player){
             Player player = (Player) sender;
             if (player.hasPermission("playergui.ban")){
-                if (args.length == 1){
-                    Player PlayerToMod = Bukkit.getPlayerExact(args[0]);
-                    if (Bukkit.getServer().getOnlinePlayers().contains(PlayerToMod)) {
-                        PlayerMenuUtility playerMenuUtility = PlayerGUIAdvanced.getPlayerMenuUtility(player);
-                        playerMenuUtility.setPlayerToMod(Bukkit.getPlayer(args[0]));
-                        new PunishMenu(PlayerGUIAdvanced.getPlayerMenuUtility(player)).open();
-                    }else {
-                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-invalid-player").replace("%target%", args[0])));
+                if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-ban-manager")){
+                    if (args.length == 1){
+                        Player PlayerToMod = Bukkit.getPlayerExact(args[0]);
+                        if (Bukkit.getServer().getOnlinePlayers().contains(PlayerToMod)) {
+                            PlayerMenuUtility playerMenuUtility = PlayerGUIAdvanced.getPlayerMenuUtility(player);
+                            playerMenuUtility.setPlayerToMod(Bukkit.getPlayer(args[0]));
+                            new PunishMenu(PlayerGUIAdvanced.getPlayerMenuUtility(player)).open();
+                        }else {
+                            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-invalid-player").replace("%target%", args[0])));
+                        }
+                    }else{
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-no-player-provided")));
                     }
-                }else{
-                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-no-player-provided")));
+                }else {
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                 }
             }else{
                 player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-no-permission")));
