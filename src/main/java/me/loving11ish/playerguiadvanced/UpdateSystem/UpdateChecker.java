@@ -3,7 +3,6 @@ package me.loving11ish.playerguiadvanced.UpdateSystem;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.Bukkit;
-
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Consumer;
 
