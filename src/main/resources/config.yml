@@ -40,86 +40,332 @@ Kick-command: 'kick %target% You were kicked by an operator'
 #Do you wish to use the GUI based ban manager?
 Enable-ban-manager: true
 
-Enable-ban-1: true
-Ban-length-1-material: 'PAPER'
-Ban-length-1-name: "&cBan For 1 Hour!"
-Ban-length-1-lore-1: "&aThis performs the /ban command"
-Ban-length-1-lore-2: "&aand is issued by you, not the console."
-Ban-length-1-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Enable-ban-1: false
+Ban-length-1-material: 'WHITE_DYE'
+Ban-length-1-name: ""
+Ban-length-1-lore-1: ""
+Ban-length-1-lore-2: ""
+Ban-length-1-lore-3: ""
 
-Ban-length-1-command: 'ban %target% 1h You were temporarily banned for 1 hour by an operator'
+Ban-length-1-command: ''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 Enable-ban-2: true
-Ban-length-2-material: 'IRON_INGOT'
-Ban-length-2-name: "&cBan For 1 Day!"
-Ban-length-2-lore-1: "&aThis performs the /ban command"
-Ban-length-2-lore-2: "&aand is issued by you, not the console."
-Ban-length-2-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Ban-length-2-material: 'WRITABLE_BOOK'
+Ban-length-2-name: "&e&lWarn Player"
+Ban-length-2-lore-1: ""
+Ban-length-2-lore-2: ""
+Ban-length-2-lore-3: ""
 
-Ban-length-2-command: 'ban %target% 1d You were temporarily banned for 1 day by an operator'
+Ban-length-2-command: ''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-Enable-ban-3: true
-Ban-length-3-material: 'ANVIL'
-Ban-length-3-name: "&cBan For 3 Days!"
-Ban-length-3-lore-1: "&aThis performs the /ban command"
-Ban-length-3-lore-2: "&aand is issued by you, not the console."
-Ban-length-3-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Enable-ban-3: false
+Ban-length-3-material: 'BLACK_DYE'
+Ban-length-3-name: ""
+Ban-length-3-lore-1: ""
+Ban-length-3-lore-2: ""
+Ban-length-3-lore-3: ""
 
-Ban-length-3-command: 'ban %target% 3d You were temporarily banned for 3 days by an operator'
+Ban-length-3-command: ''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 Enable-ban-4: true
-Ban-length-4-material: 'IRON_BLOCK'
-Ban-length-4-name: "&cBan For 7 Days!"
-Ban-length-4-lore-1: "&aThis performs the /ban command"
-Ban-length-4-lore-2: "&aand is issued by you, not the console."
-Ban-length-4-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Ban-length-4-material: 'BOOK'
+Ban-length-4-name: "&e&lMute Player"
+Ban-length-4-lore-1: ""
+Ban-length-4-lore-2: ""
+Ban-length-4-lore-3: ""
 
-Ban-length-4-command: 'ban %target% 7d You were temporarily banned for 7 days by an operator'
+Ban-length-4-command: ''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-Enable-ban-5: true
-Ban-length-5-material: 'OAK_PLANKS'
-Ban-length-5-name: "&cBan For 2 Weeks!"
-Ban-length-5-lore-1: "&aThis performs the /ban command"
-Ban-length-5-lore-2: "&aand is issued by you, not the console."
-Ban-length-5-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Enable-ban-5: false
+Ban-length-5-material: 'RED_DYE'
+Ban-length-5-name: ""
+Ban-length-5-lore-1: ""
+Ban-length-5-lore-2: ""
+Ban-length-5-lore-3: ""
 
-Ban-length-5-command: 'ban %target% 2w You were temporarily banned for 2 weeks by an operator'
+Ban-length-5-command: ''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 Enable-ban-6: true
-Ban-length-6-material: 'STONE'
-Ban-length-6-name: "&cBan For 1 Month!"
-Ban-length-6-lore-1: "&aThis performs the /ban command"
-Ban-length-6-lore-2: "&aand is issued by you, not the console."
-Ban-length-6-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Ban-length-6-material: 'WOODEN_AXE'
+Ban-length-6-name: "&e&lTempban Player"
+Ban-length-6-lore-1: ""
+Ban-length-6-lore-2: ""
+Ban-length-6-lore-3: ""
 
-Ban-length-6-command: 'ban %target% 1month You were temporarily banned for 1 month by an operator'
+Ban-length-6-command: ''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-Enable-ban-7: true
-Ban-length-7-material: 'MAGMA_BLOCK'
-Ban-length-7-name: "&cBan For 3 Months!"
-Ban-length-7-lore-1: "&aThis performs the /ban command"
-Ban-length-7-lore-2: "&aand is issued by you, not the console."
-Ban-length-7-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Enable-ban-7: false
+Ban-length-7-material: 'CYAN_DYE'
+Ban-length-7-name: ""
+Ban-length-7-lore-1: ""
+Ban-length-7-lore-2: ""
+Ban-length-7-lore-3: ""
 
-Ban-length-7-command: 'ban %target% 3month You were temporarily banned for 3 months by an operator'
+Ban-length-7-command: ''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 Enable-ban-8: true
-Ban-length-8-material: 'OBSIDIAN'
-Ban-length-8-name: "&cBan For 6 Months!"
-Ban-length-8-lore-1: "&aThis performs the /ban command"
-Ban-length-8-lore-2: "&aand is issued by you, not the console."
-Ban-length-8-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Ban-length-8-material: 'FLINT_AND_STEEL'
+Ban-length-8-name: "&c&lPerm Ban Player"
+Ban-length-8-lore-1: ""
+Ban-length-8-lore-2: ""
+Ban-length-8-lore-3: ""
 
-Ban-length-8-command: 'ban %target% 6month You were temporarily banned for 6 months by an operator'
+Ban-length-8-command: ''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-Enable-ban-9: true
-Ban-length-9-material: 'BEDROCK'
-Ban-length-9-name: "&cPerm Ban This Player!"
-Ban-length-9-lore-1: "&aThis performs the /ban command"
-Ban-length-9-lore-2: "&aand is issued by you, not the console."
-Ban-length-9-lore-3: "&dYOU REQUIRE BAN PERMISSIONS FOR THIS TO WORK!"
+Enable-ban-9: false
+Ban-length-9-material: 'PURPLE_DYE'
+Ban-length-9-name: ""
+Ban-length-9-lore-1: ""
+Ban-length-9-lore-2: ""
+Ban-length-9-lore-3: ""
 
-Ban-length-9-command: 'ban %target% You were permanently banned by an operator'
+Ban-length-9-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-10: false
+Ban-length-10-material: 'ORANGE_DYE'
+Ban-length-10-name: ""
+Ban-length-10-lore-1: ""
+Ban-length-10-lore-2: ""
+Ban-length-10-lore-3: ""
+
+Ban-length-10-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-11: true
+Ban-length-11-material: 'STICK'
+Ban-length-11-name: "&eWarning"
+Ban-length-11-lore-1: "&aThis performs the /warn <message> command"
+Ban-length-11-lore-2: "&aThe message is as below:"
+Ban-length-11-lore-3: "&dYou have been warned by a member of staff. Any further issues may result in a ban!"
+
+Ban-length-11-command: 'warn %target% You have been warned by a member of staff. Any further issues may result in a ban!'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-12: false
+Ban-length-12-material: 'PINK_DYE'
+Ban-length-12-name: ""
+Ban-length-12-lore-1: ""
+Ban-length-12-lore-2: ""
+Ban-length-12-lore-3: ""
+
+Ban-length-12-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-13: true
+Ban-length-13-material: 'FEATHER'
+Ban-length-13-name: "&e1 Hour Mute"
+Ban-length-13-lore-1: "&aThis performs the /tempmute <message> command"
+Ban-length-13-lore-2: "&aThe messgae is as below:"
+Ban-length-13-lore-3: "&dYou have been temporarily muted for repeated chat violation!"
+
+Ban-length-13-command: 'tempmute %target% 1hour You have been temporarily muted for repeated chat violations!'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-14: false
+Ban-length-14-material: 'YELLOW_DYE'
+Ban-length-14-name: ""
+Ban-length-14-lore-1: ""
+Ban-length-14-lore-2: ""
+Ban-length-14-lore-3: ""
+
+Ban-length-14-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-15: true
+Ban-length-15-material: 'GRASS_BLOCK'
+Ban-length-15-name: "&e1 Hour Ban"
+Ban-length-15-lore-1: "&aThis performs the /tempban <message> command"
+Ban-length-15-lore-2: "&aThe message is as below:"
+Ban-length-15-lore-3: "&dYou have been temporarily banned from this server for repeated rule violations!"
+
+Ban-length-15-command: 'tempban %target% 1hour You have been temporarily banned from this server for repeated rule violations!'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-16: false
+Ban-length-16-material: 'LIME_DYE'
+Ban-length-16-name: ""
+Ban-length-16-lore-1: ""
+Ban-length-16-lore-2: ""
+Ban-length-16-lore-3: ""
+
+Ban-length-16-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-17: true
+Ban-length-17-material: 'BEDROCK'
+Ban-length-17-name: "&cPerm Ban"
+Ban-length-17-lore-1: "&aThis performs the /ban <messgae> command"
+Ban-length-17-lore-2: "&aThe message is as follows"
+Ban-length-17-lore-3: "&dYou have been permanantly banned from this server :/"
+
+Ban-length-17-command: 'ban %target% You have been permanantly banned from this server :/'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-18: false
+Ban-length-18-material: 'GREEN_DYE'
+Ban-length-18-name: ""
+Ban-length-18-lore-1: ""
+Ban-length-18-lore-2: ""
+Ban-length-18-lore-3: ""
+
+Ban-length-18-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-19: false
+Ban-length-19-material: 'MAGENTA_DYE'
+Ban-length-19-name: ""
+Ban-length-19-lore-1: ""
+Ban-length-19-lore-2: ""
+Ban-length-19-lore-3: ""
+
+Ban-length-19-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-20: false
+Ban-length-20-material: 'GRAY_DYE'
+Ban-length-20-name: ""
+Ban-length-20-lore-1: ""
+Ban-length-20-lore-2: ""
+Ban-length-20-lore-3: ""
+
+Ban-length-20-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-21: false
+Ban-length-21-material: 'BROWN_DYE'
+Ban-length-21-name: ""
+Ban-length-21-lore-1: ""
+Ban-length-21-lore-2: ""
+Ban-length-21-lore-3: ""
+
+Ban-length-21-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-22: true
+Ban-length-22-material: 'PAPER'
+Ban-length-22-name: "&e1 Day Mute"
+Ban-length-22-lore-1: "&aThis performs the /tempmute <message> command"
+Ban-length-22-lore-2: "&aThe messgae is as below:"
+Ban-length-22-lore-3: "&dYou have been muted for 1 day for severe chat violations!"
+
+Ban-length-22-command: 'tempmute %target% 1day You have been muted for 1 day for severe chat violations!'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-23: false
+Ban-length-23-material: 'RED_DYE'
+Ban-length-23-name: ""
+Ban-length-23-lore-1: ""
+Ban-length-23-lore-2: ""
+Ban-length-23-lore-3: ""
+
+Ban-length-23-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-24: true
+Ban-length-24-material: 'STONE'
+Ban-length-24-name: "&e1 Day Ban"
+Ban-length-24-lore-1: "&aThis performs the /tempban <message> command"
+Ban-length-24-lore-2: "&aThe message is as follows:"
+Ban-length-24-lore-3: "&dYou have been temporarily banned from this server for severe rule violations!"
+
+Ban-length-24-command: 'tempban %target% 1day You have been temporarily banned from this server for severe rule violations!'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-25: false
+Ban-length-25-material: 'BLUE_DYE'
+Ban-length-25-name: ""
+Ban-length-25-lore-1: ""
+Ban-length-25-lore-2: ""
+Ban-length-25-lore-3: ""
+
+Ban-length-25-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-26: true
+Ban-length-26-material: 'ANVIL'
+Ban-length-26-name: "&cIP-Ban"
+Ban-length-26-lore-1: "&aThis performs the /ipban <message> command"
+Ban-length-26-lore-2: "&aThe message is as follows:"
+Ban-length-26-lore-3: "&dYour ip has been permanantly banned from this server :/"
+
+Ban-length-26-command: 'ipban %target% Your ip has been permanantly banned from this server :/'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-27: false
+Ban-length-27-material: 'LIGHT_BLUE_DYE'
+Ban-length-27-name: ""
+Ban-length-27-lore-1: ""
+Ban-length-27-lore-2: ""
+Ban-length-27-lore-3: ""
+
+Ban-length-27-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-28: false
+Ban-length-28-material: 'LIGHT_GRAY_DYE'
+Ban-length-28-name: ""
+Ban-length-28-lore-1: ""
+Ban-length-28-lore-2: ""
+Ban-length-28-lore-3: ""
+
+Ban-length-28-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-29: false
+Ban-length-29-material: 'ENDER_PEARL'
+Ban-length-29-name: ""
+Ban-length-29-lore-1: ""
+Ban-length-29-lore-2: ""
+Ban-length-29-lore-3: ""
+
+Ban-length-29-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-30: false
+Ban-length-30-material: 'BLAZE_POWDER'
+Ban-length-30-name: ""
+Ban-length-30-lore-1: ""
+Ban-length-30-lore-2: ""
+Ban-length-30-lore-3: ""
+
+Ban-length-30-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-31: true
+Ban-length-31-material: 'COBWEB'
+Ban-length-31-name: "&e7 Day Mute"
+Ban-length-31-lore-1: "&aThis performs the /tempmute <message> command"
+Ban-length-31-lore-2: "&aThe message is as below:"
+Ban-length-31-lore-3: "&dYou have been muted for 7 days for extreme chat violations!"
+
+Ban-length-31-command: 'tempmute %target% 7day You have been muted for 7 days for extreme chat violations!'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-32: false
+Ban-length-32-material: 'COCOA_BEANS'
+Ban-length-32-name: ""
+Ban-length-32-lore-1: ""
+Ban-length-32-lore-2: ""
+Ban-length-32-lore-3: ""
+
+Ban-length-32-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-33: true
+Ban-length-33-material: 'OBSIDIAN'
+Ban-length-33-name: "&e7 Day Ban"
+Ban-length-33-lore-1: "&aThis performs the /tempban <message> command"
+Ban-length-33-lore-2: "&aThe Message is as follows:"
+Ban-length-33-lore-3: "&dYou have been temporarily banned from this server for extreme rule violations!"
+
+Ban-length-33-command: 'tempban %target% 7day You have been temporarily banned from this server for extreme rule violations!'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-34: false
+Ban-length-34-material: 'SUGAR'
+Ban-length-34-name: ""
+Ban-length-34-lore-1: ""
+Ban-length-34-lore-2: ""
+Ban-length-34-lore-3: ""
+
+Ban-length-34-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-35: false
+Ban-length-35-material: 'MELON_SEEDS'
+Ban-length-35-name: ""
+Ban-length-35-lore-1: ""
+Ban-length-35-lore-2: ""
+Ban-length-35-lore-3: ""
+
+Ban-length-35-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Enable-ban-36: false
+Ban-length-36-material: 'PUMPKIN_SEEDS'
+Ban-length-36-name: ""
+Ban-length-36-lore-1: ""
+Ban-length-36-lore-2: ""
+Ban-length-36-lore-3: ""
+
+Ban-length-36-command: ''
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Filler-material: 'GRAY_STAINED_GLASS_PANE'
+Filler-name: " "
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
