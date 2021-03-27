@@ -6,7 +6,7 @@
 
     <groupId>me.loving11ish</groupId>
     <artifactId>PlayerGUIAdvanced</artifactId>
-    <version>5.5</version>
+    <version>5.6</version>
     <packaging>jar</packaging>
 
     <name>PlayerGUIAdvanced</name>
@@ -85,6 +85,11 @@
             <groupId>com.github.LeonMangler</groupId>
             <artifactId>SuperVanish</artifactId>
             <version>6.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.LeonMangler</groupId>
+            <artifactId>PremiumVanishAPI</artifactId>
+            <version>2.6.3</version>
         </dependency>
     </dependencies>
 </project>

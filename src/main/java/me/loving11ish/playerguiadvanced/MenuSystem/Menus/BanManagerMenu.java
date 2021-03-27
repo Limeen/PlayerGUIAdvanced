@@ -38,8 +38,9 @@ public class BanManagerMenu extends Menu {
     public void handleMenu(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         event.setCancelled(true);
+        UUID uuid = playerMenuUtility.getPlayerToMod().getUniqueId();
         String target = event.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
-        Player targetToBan = Bukkit.getPlayerExact(event.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
+        Player targetToBan = (Player) Bukkit.getOfflinePlayer(uuid);
         if (event.getCurrentItem().getType().equals(Material.PLAYER_HEAD)) {
             player.closeInventory();
         }else if (event.getCurrentItem().getType().equals(Material.BARRIER))  {

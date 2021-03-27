@@ -10,6 +10,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class Punish implements CommandExecutor {
 
     @Override
@@ -19,12 +21,13 @@ public class Punish implements CommandExecutor {
             if (player.hasPermission("playergui.ban")){
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-ban-manager")){
                     if (args.length == 1){
-                        Player PlayerToMod = Bukkit.getPlayerExact(args[0]);
-                        if (Bukkit.getServer().getOnlinePlayers().contains(PlayerToMod)) {
+                        try {
+                            UUID uuid = Bukkit.getPlayerExact(args[0]).getUniqueId();
+                            Player PlayerToMod = (Player) Bukkit.getOfflinePlayer(uuid);
                             PlayerMenuUtility playerMenuUtility = PlayerGUIAdvanced.getPlayerMenuUtility(player);
-                            playerMenuUtility.setPlayerToMod(Bukkit.getPlayer(args[0]));
+                            playerMenuUtility.setPlayerToMod(PlayerToMod);
                             new PunishMenu(PlayerGUIAdvanced.getPlayerMenuUtility(player)).open();
-                        }else {
+                        }catch (NullPointerException exception){
                             player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-invalid-player").replace("%target%", args[0])));
                         }
                     }else{
