@@ -6,6 +6,18 @@
 #                                   ----[Plugin Config File]----                                    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Do you wish to use the advanced GUI based moderation features?
+Enable-advanced-GUI-features: true
+#If the above option is false, do you want the plugin to run a command when clicking on a player?
+Enable-simplemode-command: false
+#Run command as console?
+Simplemode-console-sender: false
+#Please enter the command below.
+#If an error occurs, try adding the '%target%' placeholder within the command string below.
+Simplemode-click-command: 'tell %target% You are being watched!'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #Do you wish to use the GUI based /op feature?
 Enable-op: true
 #Do you wish to use the GUI based /deop feature?
@@ -405,6 +417,8 @@ Punish-menu-title: "&bPunish: %target%"
 
 #Plugin messages
 
+Simplemode-enabled-message: "&e[&bPlayerGUIAdvanced&e] &f- &cSimplemode has been enabled by an administrator!"
+
 Player-list-menu-last-page: "&7You are on the last page."
 Player-list-menu-first-page: "&7You are on the first page."
 Player-list-command-no-permission: "&4You do not have the permission &eplayergui.use &4needed to run that command"
@@ -439,14 +453,14 @@ Vanish-command-no-permission: "&4You do not have the permission &eplayergui.vani
 
 #Plugin-update-available:
 Update-1: "&4*-------------------------------------------*"
-Update-2: "&b[PlayerGUIAdvanced] &c- A new version is available!"
+Update-2: "&bPlayerGUIAdvanced &c- A new version is available!"
 Update-3: "&4*-------------------------------------------*"
 
 #Plugin-no-new-update:
 No-update-1: "&a*-------------------------------------------*"
-No-update-2: "&b[PlayerGUIAdvanced] &a- Plugin is up to date!"
+No-update-2: "&bPlayerGUIAdvanced &a- Plugin is up to date!"
 No-update-3: "&a*-------------------------------------------*"
-Update-check-failure: "&b[PlayerGUIAdvanced] &4- Unable to check for updates! - &c"
+Update-check-failure: "&bPlayerGUIAdvanced &4- Unable to check for updates! - &c"
 
 Player-only-command: "&4That command can only be executed by a player."
 

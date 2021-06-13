@@ -40,21 +40,27 @@ public class PlayerListMenu extends PaginatedMenu {
     @Override
     public void handleMenu(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-
         ArrayList<Player> players = new ArrayList<Player>(getServer().getOnlinePlayers());
-
         if (event.getCurrentItem().getType().equals(Material.PLAYER_HEAD)) {
-
             PlayerMenuUtility playerMenuUtility = PlayerGUIAdvanced.getPlayerMenuUtility(player);
             playerMenuUtility.setPlayerToMod(Bukkit.getPlayer(UUID.fromString(event.getCurrentItem().getItemMeta().getPersistentDataContainer().get(new NamespacedKey(PlayerGUIAdvanced.getPlugin(), "uuid"), PersistentDataType.STRING))));
-
-            new ActionsMenu(playerMenuUtility).open();
-
+            String playerToMod = playerMenuUtility.getPlayerToMod().getName();
+            if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features")){
+                new ActionsMenu(playerMenuUtility).open();
+            }else if (!(PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features"))){
+                if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-simplemode-command")){
+                    if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Simplemode-console-sender")){
+                        getServer().dispatchCommand(Bukkit.getConsoleSender(), PlayerGUIAdvanced.getPlugin().getConfig().getString("Simplemode-click-command").replace("%target%", playerToMod));
+                        player.closeInventory();
+                    }else if (!(PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Simplemode-console-sender"))){
+                        player.performCommand(PlayerGUIAdvanced.getPlugin().getConfig().getString("Simplemode-click-command").replace("%target%", playerToMod));
+                        player.closeInventory();
+                    }
+                }
+            }
         }else if (event.getCurrentItem().getType().equals(Material.BARRIER)) {
-
             //close inventory
             player.closeInventory();
-
         }else if(event.getCurrentItem().getType().equals(Material.STONE_BUTTON)){
             if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equalsIgnoreCase("Previous Page")){
                 if (page == 0){

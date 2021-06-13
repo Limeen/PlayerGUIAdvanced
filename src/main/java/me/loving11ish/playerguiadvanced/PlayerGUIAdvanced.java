@@ -26,23 +26,43 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        //Server version compatibility check
+        if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||Bukkit.getServer().getVersion().contains("1.15")||Bukkit.getServer().getVersion().contains("1.16")||Bukkit.getServer().getVersion().contains("1.17"))){
+            System.out.println(ChatColor.RED + "-------------------------------------------");
+            System.out.println(ChatColor.RED + "PlayerGUIAdvanced - This plugin is only supported on the Minecraft versions listed below:");
+            System.out.println(ChatColor.RED + "PlayerGUIAdvanced - 1.13.x");
+            System.out.println(ChatColor.RED + "PlayerGUIAdvanced - 1.14.x");
+            System.out.println(ChatColor.RED + "PlayerGUIAdvanced - 1.15.x");
+            System.out.println(ChatColor.RED + "PlayerGUIAdvanced - 1.16.x");
+            System.out.println(ChatColor.RED + "PlayerGUIAdvanced - 1.17.x");
+            System.out.println(ChatColor.RED + "PlayerGUIAdvanced - Is now disabling!");
+            System.out.println(ChatColor.RED + "-------------------------------------------");
+            Bukkit.getPluginManager().disablePlugin(plugin);
+        }else {
+            System.out.println(ChatColor.GREEN + "-------------------------------------------");
+            System.out.println(ChatColor.GREEN + "PlayerGUIAdvanced - A supported Minecraft version has been detected");
+            System.out.println(ChatColor.GREEN + "PlayerGUIAdvanced - Continuing plugin startup");
+            System.out.println(ChatColor.GREEN + "-------------------------------------------");
+        }
+
         //Load the config file
+        plugin = this;
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
         //VanishAPI hook check
         System.out.println("-------------------------------------------");
         if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish")){
-            System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Successfully hooked into SuperVanish");
-            System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Enabling VanishAPI features");
+            System.out.println(ChatColor.AQUA + "PlayerGUIAdvanced - Successfully hooked into SuperVanish");
+            System.out.println(ChatColor.AQUA + "PlayerGUIAdvanced - Enabling VanishAPI features");
         }
         if (Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
-            System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Successfully hooked into PremiumVanish");
-            System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Enabling VanishAPI features");
+            System.out.println(ChatColor.AQUA + "PlayerGUIAdvanced - Successfully hooked into PremiumVanish");
+            System.out.println(ChatColor.AQUA + "PlayerGUIAdvanced - Enabling VanishAPI features");
         }
 
         //Register commands here
-        plugin = this;
         getCommand("players").setExecutor(new Players());
         getCommand("actions").setExecutor(new Actions());
         getCommand("punish").setExecutor(new Punish());
@@ -53,9 +73,9 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MenuListeners(),this);
 
         //Plugin startup message
-        System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Plugin By Loving11ish");
-        System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] has been loaded successfully");
-        System.out.println(ChatColor.AQUA + "[PlayerGUIAdvanced] Plugin Version " + pluginVersion);
+        System.out.println(ChatColor.AQUA + "PlayerGUIAdvanced - Plugin By Loving11ish");
+        System.out.println(ChatColor.AQUA + "PlayerGUIAdvanced - has been loaded successfully");
+        System.out.println(ChatColor.AQUA + "PlayerGUIAdvanced - Plugin Version " + pluginVersion);
         System.out.println("-------------------------------------------");
 
         //Check for available updates

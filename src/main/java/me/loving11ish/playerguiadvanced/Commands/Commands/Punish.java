@@ -19,22 +19,26 @@ public class Punish implements CommandExecutor {
         if (sender instanceof Player){
             Player player = (Player) sender;
             if (player.hasPermission("playergui.ban")){
-                if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-ban-manager")){
-                    if (args.length == 1){
-                        try {
-                            UUID uuid = Bukkit.getPlayerExact(args[0]).getUniqueId();
-                            Player PlayerToMod = (Player) Bukkit.getOfflinePlayer(uuid);
-                            PlayerMenuUtility playerMenuUtility = PlayerGUIAdvanced.getPlayerMenuUtility(player);
-                            playerMenuUtility.setPlayerToMod(PlayerToMod);
-                            new PunishMenu(PlayerGUIAdvanced.getPlayerMenuUtility(player)).open();
-                        }catch (NullPointerException exception){
-                            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-invalid-player").replace("%target%", args[0])));
+                if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features")){
+                    if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-ban-manager")){
+                        if (args.length == 1){
+                            try {
+                                UUID uuid = Bukkit.getPlayerExact(args[0]).getUniqueId();
+                                Player PlayerToMod = (Player) Bukkit.getOfflinePlayer(uuid);
+                                PlayerMenuUtility playerMenuUtility = PlayerGUIAdvanced.getPlayerMenuUtility(player);
+                                playerMenuUtility.setPlayerToMod(PlayerToMod);
+                                new PunishMenu(PlayerGUIAdvanced.getPlayerMenuUtility(player)).open();
+                            }catch (NullPointerException exception){
+                                player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-invalid-player").replace("%target%", args[0])));
+                            }
+                        }else{
+                            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-no-player-provided")));
                         }
-                    }else{
-                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-no-player-provided")));
+                    }else {
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                     }
                 }else {
-                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Simplemode-enabled-message")));
                 }
             }else{
                 player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-no-permission")));
