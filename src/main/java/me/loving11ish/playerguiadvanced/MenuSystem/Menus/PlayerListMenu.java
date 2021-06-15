@@ -17,6 +17,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static org.bukkit.Bukkit.getServer;
@@ -39,6 +40,7 @@ public class PlayerListMenu extends PaginatedMenu {
 
     @Override
     public void handleMenu(InventoryClickEvent event) {
+        List<String> commandList = PlayerGUIAdvanced.getPlugin().getConfig().getStringList("Simplemode-click-commands");
         Player player = (Player) event.getWhoClicked();
         ArrayList<Player> players = new ArrayList<Player>(getServer().getOnlinePlayers());
         if (event.getCurrentItem().getType().equals(Material.PLAYER_HEAD)) {
@@ -50,10 +52,14 @@ public class PlayerListMenu extends PaginatedMenu {
             }else if (!(PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features"))){
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-simplemode-command")){
                     if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Simplemode-console-sender")){
-                        getServer().dispatchCommand(Bukkit.getConsoleSender(), PlayerGUIAdvanced.getPlugin().getConfig().getString("Simplemode-click-command").replace("%target%", playerToMod));
+                        for (String string : commandList){
+                            getServer().dispatchCommand(Bukkit.getConsoleSender(), string.replace("%target%", playerToMod));
+                        }
                         player.closeInventory();
                     }else if (!(PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Simplemode-console-sender"))){
-                        player.performCommand(PlayerGUIAdvanced.getPlugin().getConfig().getString("Simplemode-click-command").replace("%target%", playerToMod));
+                        for (String string : commandList){
+                            player.performCommand(string.replace("%target%", playerToMod));
+                        }
                         player.closeInventory();
                     }
                 }
@@ -114,7 +120,11 @@ public class PlayerListMenu extends PaginatedMenu {
                     lore.add(ChatColor.WHITE + "Has Fly: " + ChatColor.LIGHT_PURPLE + players.get(i).getAllowFlight());
                     lore.add(ChatColor.WHITE + "World: " + ChatColor.LIGHT_PURPLE + players.get(i).getWorld().getName());
                     lore.add(ChatColor.WHITE + "OP: " + ChatColor.LIGHT_PURPLE + players.get(i).getServer().getOperators().contains(players.get(i).getServer().getPlayerExact(players.get(i).getName())));
-                    lore.add(ChatColor.GREEN + "Click to moderate this player");
+                    if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features")){
+                        lore.add(ChatColor.GREEN + "Click to moderate this player");
+                    }else {
+                        lore.add(ChatColor.GREEN + "Click Me");
+                    }
                     meta.setLore(lore);
 
                     meta.getPersistentDataContainer().set(new NamespacedKey(PlayerGUIAdvanced.getPlugin(), "uuid"), PersistentDataType.STRING, players.get(index).getUniqueId().toString());

@@ -13,8 +13,10 @@ Enable-simplemode-command: false
 #Run command as console?
 Simplemode-console-sender: false
 #Please enter the command below.
-#If an error occurs, try adding the '%target%' placeholder within the command string below.
-Simplemode-click-command: 'tell %target% You are being watched!'
+#If an error occurs, try adding the '%target%' placeholder within the command strings below.
+Simplemode-click-commands:
+  - 'tell %target% You are being watched!'
+  - 'kick %target% Get moderated on fool!'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#

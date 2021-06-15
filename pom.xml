@@ -6,7 +6,7 @@
 
     <groupId>me.loving11ish</groupId>
     <artifactId>PlayerGUIAdvanced</artifactId>
-    <version>5.7</version>
+    <version>5.8</version>
     <packaging>jar</packaging>
 
     <name>PlayerGUIAdvanced</name>
