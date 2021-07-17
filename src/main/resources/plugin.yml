@@ -12,9 +12,12 @@ commands:
   players:
     description: Open the Player list GUI.
     usage: </command>
+    permission: playergui.use
   actions:
     description: Open the Actions GUI for a chosen player.
     usage: /actions <player>
+    permission: playergui.mod
   punish:
     description: Open the Punish GUI for a chosen player.
     usage: /punish <player>
+    permission: playergui.ban
