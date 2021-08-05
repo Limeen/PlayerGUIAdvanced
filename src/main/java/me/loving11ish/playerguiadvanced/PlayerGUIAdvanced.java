@@ -28,7 +28,9 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
     public void onEnable() {
 
         //Server version compatibility check
-        if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||Bukkit.getServer().getVersion().contains("1.15")||Bukkit.getServer().getVersion().contains("1.16")||Bukkit.getServer().getVersion().contains("1.17"))){
+        if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||
+                Bukkit.getServer().getVersion().contains("1.15")||Bukkit.getServer().getVersion().contains("1.16")||
+                Bukkit.getServer().getVersion().contains("1.17"))){
             System.out.println(ChatColor.RED + "-------------------------------------------");
             System.out.println(ChatColor.RED + "PlayerGUIAdvanced - This plugin is only supported on the Minecraft versions listed below:");
             System.out.println(ChatColor.RED + "PlayerGUIAdvanced - 1.13.x");
