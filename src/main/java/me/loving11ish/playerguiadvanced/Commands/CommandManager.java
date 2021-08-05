@@ -13,12 +13,14 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 public class CommandManager implements TabExecutor {
 
     private ArrayList<SubCommand> subcommands = new ArrayList<>();
     private ArrayList<ConsoleCommand> consolecommands = new ArrayList<>();
+    Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
 
     public CommandManager() {
         //Get the subcommands so we can access them in the command manager class(here)
@@ -51,9 +53,9 @@ public class CommandManager implements TabExecutor {
                     }
                 }
             } else {
-                System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Syntax-error-1")));
-                System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Syntax-error-2")));
-                System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Syntax-error-3")));
+                logger.info(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Syntax-error-1")));
+                logger.info(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Syntax-error-2")));
+                logger.info(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Syntax-error-3")));
             }
         }
         return true;

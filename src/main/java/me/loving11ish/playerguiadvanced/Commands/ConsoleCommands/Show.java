@@ -5,7 +5,11 @@ import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.ChatColor;
 
+import java.util.logging.Logger;
+
 public class Show extends ConsoleCommand {
+
+    Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
 
     @Override
     public String getName() {
@@ -24,7 +28,7 @@ public class Show extends ConsoleCommand {
 
     @Override
     public void perform(String[] args) {
-        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-only-command")));
+        logger.info(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-only-command")));
     }
 
 }

@@ -5,7 +5,11 @@ import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.ChatColor;
 
+import java.util.logging.Logger;
+
 public class Reload extends ConsoleCommand {
+
+    Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
 
     @Override
     public String getName() {
@@ -25,6 +29,6 @@ public class Reload extends ConsoleCommand {
     @Override
     public void perform(String[] args) {
         PlayerGUIAdvanced.getPlugin().reloadConfig();
-        System.out.println(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Plugin-reload-successful")));
+        logger.info(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Plugin-reload-successful")));
     }
 }
