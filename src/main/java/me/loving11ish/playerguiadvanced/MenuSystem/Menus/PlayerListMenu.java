@@ -48,7 +48,11 @@ public class PlayerListMenu extends PaginatedMenu {
             playerMenuUtility.setPlayerToMod(Bukkit.getPlayer(UUID.fromString(event.getCurrentItem().getItemMeta().getPersistentDataContainer().get(new NamespacedKey(PlayerGUIAdvanced.getPlugin(), "uuid"), PersistentDataType.STRING))));
             String playerToMod = playerMenuUtility.getPlayerToMod().getName();
             if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features")){
-                new ActionsMenu(playerMenuUtility).open();
+                if (player.hasPermission("playergui.mod") || player.hasPermission("playergui.*") || player.isOp()){
+                    new ActionsMenu(playerMenuUtility).open();
+                }else {
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Actions-command-no-permission")));
+                }
             }else if (!(PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features"))){
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-simplemode-command")){
                     if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Simplemode-console-sender")){
