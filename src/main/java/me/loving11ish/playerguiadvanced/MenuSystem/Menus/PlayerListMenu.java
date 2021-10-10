@@ -55,6 +55,8 @@ public class PlayerListMenu extends PaginatedMenu {
                     Bukkit.getScheduler().cancelTask(taskID1);
                 }else {
                     player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Actions-command-no-permission")));
+                    player.closeInventory();
+                    Bukkit.getScheduler().cancelTask(taskID1);
                 }
             }else if (!(PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features"))){
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-simplemode-command")){
@@ -98,11 +100,10 @@ public class PlayerListMenu extends PaginatedMenu {
 
     @Override
     public void setMenuItems() {
-
+        addMenuControls();
         taskID1 = Bukkit.getScheduler().scheduleSyncRepeatingTask(PlayerGUIAdvanced.getPlugin(PlayerGUIAdvanced.class), new Runnable() {
             @Override
             public void run() {
-                addMenuControls();
 
                 //The thing you will be looping through to place items
                 ArrayList<Player> players = new ArrayList<Player>(getServer().getOnlinePlayers());
@@ -132,7 +133,7 @@ public class PlayerListMenu extends PaginatedMenu {
                             }
                             lore.add(ChatColor.WHITE + "Has Fly: " + ChatColor.LIGHT_PURPLE + players.get(i).getAllowFlight());
                             lore.add(ChatColor.WHITE + "World: " + ChatColor.LIGHT_PURPLE + players.get(i).getWorld().getName());
-                            lore.add(ChatColor.WHITE + "OP: " + ChatColor.LIGHT_PURPLE + players.get(i).getServer().getOperators().contains(players.get(i).getServer().getPlayerExact(players.get(i).getName())));
+                            lore.add(ChatColor.WHITE + "Is OP: " + ChatColor.LIGHT_PURPLE + players.get(i).getServer().getOperators().contains(players.get(i).getServer().getPlayerExact(players.get(i).getName())));
                             if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features")){
                                 lore.add(ChatColor.GREEN + "Click to moderate this player");
                             }else {

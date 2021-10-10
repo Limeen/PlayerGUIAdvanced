@@ -532,16 +532,16 @@ public class PunishMenu extends Menu {
     @Override
     public void setMenuItems() {
 
-        OfflinePlayer targetToBan = playerMenuUtility.getPlayerToMod();
+        String targetToBan = playerMenuUtility.getPlayerToMod().getName();
+        UUID uuid = playerMenuUtility.getPlayerToMod().getUniqueId();
 
         //Player To Ban ------------------------------------------------------------------------------------------------
         ItemStack PlayerName = new ItemStack(Material.PLAYER_HEAD, 1);
         SkullMeta skull = (SkullMeta) PlayerName.getItemMeta();
-        UUID uuid = targetToBan.getUniqueId();
         skull.setOwningPlayer(getServer().getOfflinePlayer(uuid));
         PlayerName.setItemMeta(skull);
         ItemMeta Pmeta = PlayerName.getItemMeta();
-        Pmeta.setDisplayName(targetToBan.getName());
+        Pmeta.setDisplayName(targetToBan);
         ArrayList<String> Plore = new ArrayList<>();
         Plore.add(ChatColor.RED + "Player To Ban");
         Plore.add(ChatColor.LIGHT_PURPLE + "Click to close");

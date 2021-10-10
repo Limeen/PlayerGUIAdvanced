@@ -67,7 +67,9 @@ public class ActionsMenu extends Menu {
                     int x = target.getLocation().getBlockX();
                     int y = target.getLocation().getBlockY();
                     int z = target.getLocation().getBlockZ();
-                    Location location = new Location(target.getWorld(), x, y + 1, z);
+                    float yaw = target.getLocation().getYaw();
+                    float pitch = target.getLocation().getPitch();
+                    Location location = new Location(target.getWorld(), x, y + 1, z, yaw, pitch);
                     player.teleport(location);
                     if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
                         VanishAPI.hidePlayer(player);

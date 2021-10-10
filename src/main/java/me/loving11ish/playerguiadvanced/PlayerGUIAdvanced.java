@@ -6,7 +6,6 @@ import me.loving11ish.playerguiadvanced.Commands.Commands.Players;
 import me.loving11ish.playerguiadvanced.Commands.Commands.Punish;
 import me.loving11ish.playerguiadvanced.Listeners.MenuListeners;
 import me.loving11ish.playerguiadvanced.Listeners.PlayerConnections;
-import me.loving11ish.playerguiadvanced.MenuSystem.Menus.BanManagerMenu;
 import me.loving11ish.playerguiadvanced.MenuSystem.PlayerMenuUtility;
 import me.loving11ish.playerguiadvanced.UpdateSystem.JoinEvent;
 import me.loving11ish.playerguiadvanced.UpdateSystem.UpdateChecker;
@@ -19,8 +18,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.logging.Logger;
-
-import static me.loving11ish.playerguiadvanced.MenuSystem.Menus.PlayerListMenu.taskID1;
 
 public final class PlayerGUIAdvanced extends JavaPlugin {
 
@@ -104,10 +101,6 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        if (Bukkit.getScheduler().isCurrentlyRunning(taskID1)){
-            Bukkit.getScheduler().cancelTask(taskID1);
-        }
-        BanManagerMenu.onlineplayersmap.clear();
     }
 
     //Provide a player and return a menu system for that player
