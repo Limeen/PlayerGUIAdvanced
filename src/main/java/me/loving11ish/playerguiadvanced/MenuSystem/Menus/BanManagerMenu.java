@@ -7,6 +7,7 @@ import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
@@ -14,11 +15,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import static org.bukkit.Bukkit.getServer;
 
 public class BanManagerMenu extends Menu {
+
+    public static Map<Player, String> onlineplayersmap = new HashMap<>();
 
     public BanManagerMenu(PlayerMenuUtility playerMenuUtility) {
         super(playerMenuUtility);
@@ -38,14 +43,27 @@ public class BanManagerMenu extends Menu {
     public void handleMenu(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         event.setCancelled(true);
-        UUID uuid = playerMenuUtility.getPlayerToMod().getUniqueId();
         String target = event.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
+        ArrayList<Player> onlinePlayersList = new ArrayList<>(Bukkit.getServer().getOnlinePlayers());
+        for (int i = 0; i < onlinePlayersList.size(); i++){
+            String playersname = onlinePlayersList.get(i).getPlayer().getName();
+            if (!(onlineplayersmap.containsKey(onlinePlayersList.get(i).getPlayer()))){
+                onlineplayersmap.put(onlinePlayersList.get(i).getPlayer(), playersname);
+            }
+        }
+        if (!(onlineplayersmap.containsKey(playerMenuUtility.getPlayerToMod().getPlayer()))){
+            player.closeInventory();
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-invalid-player").replace("%target%", target)));
+            return;
+        }
+        UUID uuid = playerMenuUtility.getPlayerToMod().getUniqueId();
         Player targetToBan = (Player) Bukkit.getOfflinePlayer(uuid);
         if (event.getCurrentItem().getType().equals(Material.PLAYER_HEAD)) {
             player.closeInventory();
         }else if (event.getCurrentItem().getType().equals(Material.BARRIER))  {
             player.closeInventory();
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-1-material")))){
+        }
+        if (event.getCurrentItem().getType().equals(Material.getMaterial(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-1-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(PlayerGUIAdvanced.getPlugin().getConfig().getString("Ban-length-1-command").replace("%target%", target));
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-banned-player-message")){
@@ -519,7 +537,7 @@ public class BanManagerMenu extends Menu {
     @Override
     public void setMenuItems() {
 
-        Player targetToBan = playerMenuUtility.getPlayerToMod();
+        OfflinePlayer targetToBan = playerMenuUtility.getPlayerToMod();
 
         //Player To Ban ------------------------------------------------------------------------------------------------
         ItemStack PlayerName = new ItemStack(Material.PLAYER_HEAD, 1);

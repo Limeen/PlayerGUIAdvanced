@@ -7,6 +7,7 @@ import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
@@ -38,8 +39,20 @@ public class PunishMenu extends Menu {
     public void handleMenu(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         event.setCancelled(true);
-        UUID uuid = playerMenuUtility.getPlayerToMod().getUniqueId();
         String target = event.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
+        ArrayList<Player> onlinePlayersList = new ArrayList<>(Bukkit.getServer().getOnlinePlayers());
+        for (int i = 0; i < onlinePlayersList.size(); i++){
+            String playersname = onlinePlayersList.get(i).getPlayer().getName();
+            if (!(BanManagerMenu.onlineplayersmap.containsKey(onlinePlayersList.get(i).getPlayer()))){
+                BanManagerMenu.onlineplayersmap.put(onlinePlayersList.get(i).getPlayer(), playersname);
+            }
+        }
+        if (!(BanManagerMenu.onlineplayersmap.containsKey(playerMenuUtility.getPlayerToMod().getPlayer()))){
+            player.closeInventory();
+            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Punish-command-invalid-player").replace("%target%", target)));
+            return;
+        }
+        UUID uuid = playerMenuUtility.getPlayerToMod().getUniqueId();
         Player targetToBan = (Player) Bukkit.getOfflinePlayer(uuid);
         if (event.getCurrentItem().getType().equals(Material.PLAYER_HEAD)) {
             player.closeInventory();
@@ -519,7 +532,7 @@ public class PunishMenu extends Menu {
     @Override
     public void setMenuItems() {
 
-        Player targetToBan = playerMenuUtility.getPlayerToMod();
+        OfflinePlayer targetToBan = playerMenuUtility.getPlayerToMod();
 
         //Player To Ban ------------------------------------------------------------------------------------------------
         ItemStack PlayerName = new ItemStack(Material.PLAYER_HEAD, 1);

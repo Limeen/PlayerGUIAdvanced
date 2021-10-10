@@ -45,32 +45,42 @@ public class ActionsMenu extends Menu {
         String PlayerToMute = event.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
         switch (event.getCurrentItem().getType()){
             case WOODEN_AXE:
-                if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-kick")){
-                    player.performCommand(PlayerGUIAdvanced.getPlugin().getConfig().getString("Kick-command").replace("%target%", playerToKick));
-                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Successfully-kicked-player-chat").replace("%target%", playerToKick)));
+                if (target == null){
                     player.closeInventory();
+                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Actions-command-invalid-player").replace("%target%", playerToKick)));
                 }else {
-                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
-                    player.closeInventory();
+                    if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-kick")){
+                        player.performCommand(PlayerGUIAdvanced.getPlugin().getConfig().getString("Kick-command").replace("%target%", playerToKick));
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Successfully-kicked-player-chat").replace("%target%", playerToKick)));
+                        player.closeInventory();
+                    }else {
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
+                        player.closeInventory();
+                    }
                 }
                 break;
             case PLAYER_HEAD:
-                int x = target.getLocation().getBlockX();
-                int y = target.getLocation().getBlockY();
-                int z = target.getLocation().getBlockZ();
-                Location location = new Location(target.getWorld(), x, y + 1, z);
-                player.teleport(location);
-                if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
-                    VanishAPI.hidePlayer(player);
-                    player.setGameMode(GameMode.SPECTATOR);
+                if (target == null){
+                    player.closeInventory();
+                    player.sendMessage(ColorUtils.translateColorCodes(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Actions-command-invalid-player").replace("%target%", playerToKick))));
                 }else {
-                    player.setGameMode(GameMode.SPECTATOR);
+                    int x = target.getLocation().getBlockX();
+                    int y = target.getLocation().getBlockY();
+                    int z = target.getLocation().getBlockZ();
+                    Location location = new Location(target.getWorld(), x, y + 1, z);
+                    player.teleport(location);
+                    if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
+                        VanishAPI.hidePlayer(player);
+                        player.setGameMode(GameMode.SPECTATOR);
+                    }else {
+                        player.setGameMode(GameMode.SPECTATOR);
+                    }
+                    player.closeInventory();
                 }
-                player.closeInventory();
                 break;
             case LIME_CONCRETE:
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-op")){
-                    if (player.hasPermission("playergui.op")){
+                    if (player.hasPermission("playergui.op")||player.hasPermission("playergui.*")||player.isOp()){
                         getServer().dispatchCommand(Bukkit.getConsoleSender(), "op " + PlayerToOp);
                         player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Targeted-player-op-successful").replace("%target%", PlayerToOp)));
                     }else {
@@ -83,7 +93,7 @@ public class ActionsMenu extends Menu {
                 break;
             case RED_CONCRETE:
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-deop")){
-                    if (player.hasPermission("playergui.deop")){
+                    if (player.hasPermission("playergui.deop")||player.hasPermission("playergui.*")||player.isOp()){
                         getServer().dispatchCommand(Bukkit.getConsoleSender(), "deop " + PlayerToOp);
                         player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Targeted-player-deop-successful").replace("%target%", PlayerToOp)));
                     }else {
@@ -98,16 +108,21 @@ public class ActionsMenu extends Menu {
                 new PlayerListMenu(playerMenuUtility).open();
                 break;
             case BEDROCK:
-                if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-ban-manager")){
-                    if (player.hasPermission("playergui.ban")){
-                        new BanManagerMenu(playerMenuUtility).open();
+                if (target == null){
+                    player.closeInventory();
+                    player.sendMessage(ColorUtils.translateColorCodes(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Actions-command-invalid-player").replace("%target%", playerToKick))));
+                }else {
+                    if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-ban-manager")){
+                        if (player.hasPermission("playergui.ban")||player.hasPermission("playergui.*")||player.isOp()){
+                            new BanManagerMenu(playerMenuUtility).open();
+                        }else {
+                            player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-ban-no-permission")));
+                            player.closeInventory();
+                        }
                     }else {
-                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-ban-no-permission")));
+                        player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
                         player.closeInventory();
                     }
-                }else {
-                    player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
-                    player.closeInventory();
                 }
                 break;
             case FEATHER:
@@ -129,12 +144,22 @@ public class ActionsMenu extends Menu {
                 }
                 break;
             case SHULKER_BOX:
-                Inventory PlayerInv = getServer().getPlayerExact(event.getClickedInventory().getItem(4).getItemMeta().getDisplayName()).getInventory();
-                player.openInventory(PlayerInv);
+                if (target == null){
+                    player.closeInventory();
+                    player.sendMessage(ColorUtils.translateColorCodes(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Actions-command-invalid-player").replace("%target%", playerToKick))));
+                }else {
+                    Inventory PlayerInv = getServer().getPlayerExact(event.getClickedInventory().getItem(4).getItemMeta().getDisplayName()).getInventory();
+                    player.openInventory(PlayerInv);
+                }
                 break;
             case ENDER_CHEST:
-                Inventory PlayerEnder = getServer().getPlayerExact(event.getClickedInventory().getItem(4).getItemMeta().getDisplayName()).getEnderChest();
-                player.openInventory(PlayerEnder);
+                if (target == null){
+                    player.closeInventory();
+                    player.sendMessage(ColorUtils.translateColorCodes(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Actions-command-invalid-player").replace("%target%", playerToKick))));
+                }else {
+                    Inventory PlayerEnder = getServer().getPlayerExact(event.getClickedInventory().getItem(4).getItemMeta().getDisplayName()).getEnderChest();
+                    player.openInventory(PlayerEnder);
+                }
                 break;
             case RED_STAINED_GLASS_PANE:
                 player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Disabled-GUI-Feature")));
@@ -146,7 +171,8 @@ public class ActionsMenu extends Menu {
     @Override
     public void setMenuItems() {
 
-        Player target = playerMenuUtility.getPlayerToMod().getPlayer();
+        UUID uuid = playerMenuUtility.getPlayerToMod().getUniqueId();
+        String targetname = playerMenuUtility.getPlayerToMod().getName();
 
         //Item 1 -------------------------------------------------------------------------------------------------------
         ItemStack Kick = new ItemStack(Material.WOODEN_AXE, 1);
@@ -162,11 +188,10 @@ public class ActionsMenu extends Menu {
         //Item 2 -------------------------------------------------------------------------------------------------------
         ItemStack PlayerName = new ItemStack(Material.PLAYER_HEAD, 1);
         SkullMeta skull = (SkullMeta) PlayerName.getItemMeta();
-        UUID uuid = target.getUniqueId();
         skull.setOwningPlayer(getServer().getOfflinePlayer(uuid));
         PlayerName.setItemMeta(skull);
         ItemMeta Pmeta = PlayerName.getItemMeta();
-        Pmeta.setDisplayName(target.getName());
+        Pmeta.setDisplayName(targetname);
         ArrayList<String> Plore = new ArrayList<>();
         Plore.add(ChatColor.GOLD + "Teleport To This Player");
         Plore.add(ChatColor.GREEN + "This will also set you into Spectator");
