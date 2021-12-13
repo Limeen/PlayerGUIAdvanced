@@ -29,6 +29,8 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        //Plugin startup logic
+        plugin = this;
 
         //Server version compatibility check
         if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||
@@ -53,7 +55,6 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
         }
 
         //Load the config file
-        plugin = this;
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
