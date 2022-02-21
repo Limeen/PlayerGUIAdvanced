@@ -102,7 +102,6 @@ public class PlayerListMenu extends PaginatedMenu {
         taskID1 = Bukkit.getScheduler().scheduleSyncRepeatingTask(PlayerGUIAdvanced.getPlugin(PlayerGUIAdvanced.class), new Runnable() {
             @Override
             public void run() {
-
                 //The thing you will be looping through to place items
                 ArrayList<Player> players = new ArrayList<Player>(getServer().getOnlinePlayers());
 
@@ -116,24 +115,24 @@ public class PlayerListMenu extends PaginatedMenu {
                             //Create an item from our collection and place it into the inventory
                             ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
                             SkullMeta skull = (SkullMeta) playerHead.getItemMeta();
-                            UUID uuid = players.get(i).getUniqueId();
+                            UUID uuid = players.get(index).getUniqueId();
                             skull.setOwningPlayer(getServer().getOfflinePlayer(uuid));
                             playerHead.setItemMeta(skull);
                             ItemMeta meta = playerHead.getItemMeta();
-                            meta.setDisplayName(players.get(i).getName());
+                            meta.setDisplayName(players.get(index).getName());
                             ArrayList<String> lore = new ArrayList<>();
-                            lore.add(ChatColor.WHITE + "Player Health: " + ChatColor.LIGHT_PURPLE + players.get(i).getHealthScale());
-                            lore.add(ChatColor.WHITE + "Player Food: " + ChatColor.LIGHT_PURPLE + players.get(i).getFoodLevel());
-                            lore.add(ChatColor.WHITE + "Player XP: " + ChatColor.LIGHT_PURPLE + players.get(i).getLevel());
-                            lore.add(ChatColor.WHITE + "Gamemode: " + ChatColor.LIGHT_PURPLE + players.get(i).getGameMode());
+                            lore.add(ChatColor.WHITE + "Player Health: " + ChatColor.LIGHT_PURPLE + players.get(index).getHealth());
+                            lore.add(ChatColor.WHITE + "Player Food: " + ChatColor.LIGHT_PURPLE + players.get(index).getFoodLevel());
+                            lore.add(ChatColor.WHITE + "Player XP: " + ChatColor.LIGHT_PURPLE + players.get(index).getLevel());
+                            lore.add(ChatColor.WHITE + "Gamemode: " + ChatColor.LIGHT_PURPLE + players.get(index).getGameMode());
                             if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
-                                lore.add(ChatColor.WHITE + "Vanished: " + ChatColor.LIGHT_PURPLE + VanishAPI.isInvisible(players.get(i)));
+                                lore.add(ChatColor.WHITE + "Vanished: " + ChatColor.LIGHT_PURPLE + VanishAPI.isInvisible(players.get(index)));
                             }
-                            lore.add(ChatColor.WHITE + "Has Fly: " + ChatColor.LIGHT_PURPLE + players.get(i).getAllowFlight());
-                            lore.add(ChatColor.WHITE + "World: " + ChatColor.LIGHT_PURPLE + players.get(i).getWorld().getName());
-                            lore.add(ChatColor.WHITE + "Is OP: " + ChatColor.LIGHT_PURPLE + players.get(i).getServer().getOperators().contains(players.get(i).getServer().getPlayerExact(players.get(i).getName())));
+                            lore.add(ChatColor.WHITE + "Has Fly: " + ChatColor.LIGHT_PURPLE + players.get(index).getAllowFlight());
+                            lore.add(ChatColor.WHITE + "World: " + ChatColor.LIGHT_PURPLE + players.get(index).getWorld().getName());
+                            lore.add(ChatColor.WHITE + "Is OP: " + ChatColor.LIGHT_PURPLE + players.get(index).getServer().getOperators().contains(players.get(index).getServer().getPlayerExact(players.get(index).getName())));
                             lore.add(ChatColor.GRAY + "==============================");
-                            lore.add(ChatColor.WHITE + "UUID: " + ChatColor.BLUE + "" + ChatColor.ITALIC + players.get(i).getPlayer().getUniqueId());
+                            lore.add(ChatColor.WHITE + "UUID: " + ChatColor.BLUE + "" + ChatColor.ITALIC + players.get(index).getPlayer().getUniqueId());
                             lore.add(ChatColor.GRAY + "==============================");
                             if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features")){
                                 lore.add(ChatColor.GREEN + "Click to moderate this player");
@@ -145,14 +144,14 @@ public class PlayerListMenu extends PaginatedMenu {
                             meta.getPersistentDataContainer().set(new NamespacedKey(PlayerGUIAdvanced.getPlugin(), "uuid"), PersistentDataType.STRING, players.get(index).getUniqueId().toString());
                             playerHead.setItemMeta(meta);
 
-                            if (!(inventory.contains(playerHead))){
-                                inventory.addItem(playerHead);
-                            }
+                            inventory.setItem(index, playerHead);
+//                            if (!(inventory.contains(playerHead))){
+//                                inventory.addItem(playerHead);
+//                            }
                         }
                     }
                 }
             }
-
         }, 0, 40);
     }
 }
