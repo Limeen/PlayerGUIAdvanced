@@ -1,15 +1,19 @@
 package me.loving11ish.playerguiadvanced;
 
-import me.loving11ish.playerguiadvanced.Commands.Commands.Actions;
-import me.loving11ish.playerguiadvanced.Commands.CommandManager;
-import me.loving11ish.playerguiadvanced.Commands.Commands.Players;
-import me.loving11ish.playerguiadvanced.Commands.Commands.Punish;
-import me.loving11ish.playerguiadvanced.Listeners.MenuListeners;
-import me.loving11ish.playerguiadvanced.Listeners.PlayerConnections;
-import me.loving11ish.playerguiadvanced.MenuSystem.PlayerMenuUtility;
-import me.loving11ish.playerguiadvanced.UpdateSystem.JoinEvent;
-import me.loving11ish.playerguiadvanced.UpdateSystem.UpdateChecker;
-import me.loving11ish.playerguiadvanced.Utils.ColorUtils;
+import me.loving11ish.playerguiadvanced.commands.Commands.Actions;
+import me.loving11ish.playerguiadvanced.commands.CommandManager;
+import me.loving11ish.playerguiadvanced.commands.Commands.Players;
+import me.loving11ish.playerguiadvanced.commands.Commands.Punish;
+import me.loving11ish.playerguiadvanced.files.ActionsGUIFileManager;
+import me.loving11ish.playerguiadvanced.files.BanGUIFileManager;
+import me.loving11ish.playerguiadvanced.files.MessagesFileManager;
+import me.loving11ish.playerguiadvanced.files.PlayerListGUIFileManager;
+import me.loving11ish.playerguiadvanced.listeners.MenuListeners;
+import me.loving11ish.playerguiadvanced.listeners.PlayerConnections;
+import me.loving11ish.playerguiadvanced.menusystem.PlayerMenuUtility;
+import me.loving11ish.playerguiadvanced.updatesystem.JoinEvent;
+import me.loving11ish.playerguiadvanced.updatesystem.UpdateChecker;
+import me.loving11ish.playerguiadvanced.utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -26,6 +30,11 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
     private static PlayerGUIAdvanced plugin;
     private static final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
     Logger logger = this.getLogger();
+
+    public MessagesFileManager messagesFileManager;
+    public PlayerListGUIFileManager playersGUIManager;
+    public ActionsGUIFileManager actionsGUIManager;
+    public BanGUIFileManager banGUIManager;
 
     @Override
     public void onEnable() {
@@ -60,6 +69,22 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
+        //Load messages.yml
+        this.messagesFileManager = new MessagesFileManager();
+        messagesFileManager.MessagesFileManager(this);
+
+        //Load playersGUI.yml
+        this.playersGUIManager = new PlayerListGUIFileManager();
+        playersGUIManager.PlayerListGUIFileManager(this);
+
+        //Load actionsGUI.yml
+        this.actionsGUIManager = new ActionsGUIFileManager();
+        actionsGUIManager.ActionsGUIFileManager(this);
+
+        //Load banGUI.yml
+        this.banGUIManager = new BanGUIFileManager();
+        banGUIManager.BanGUIFileManager(this);
+
         //VanishAPI hook check
         logger.info("-------------------------------------------");
         if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish")){
@@ -91,13 +116,13 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
         //Check for available updates
         new UpdateChecker(this, 74596).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
-                logger.info(ColorUtils.translateColorCodes(getConfig().getString("No-update-1")));
-                logger.info(ColorUtils.translateColorCodes(getConfig().getString("No-update-2")));
-                logger.info(ColorUtils.translateColorCodes(getConfig().getString("No-update-3")));
+                logger.info(ColorUtils.translateColorCodes(messagesFileManager.getMessagesConfig().getString("No-update-1")));
+                logger.info(ColorUtils.translateColorCodes(messagesFileManager.getMessagesConfig().getString("No-update-2")));
+                logger.info(ColorUtils.translateColorCodes(messagesFileManager.getMessagesConfig().getString("No-update-3")));
             }else {
-                logger.warning(ColorUtils.translateColorCodes(getConfig().getString("Update-1")));
-                logger.warning(ColorUtils.translateColorCodes(getConfig().getString("Update-2")));
-                logger.warning(ColorUtils.translateColorCodes(getConfig().getString("Update-3")));
+                logger.warning(ColorUtils.translateColorCodes(messagesFileManager.getMessagesConfig().getString("Update-1")));
+                logger.warning(ColorUtils.translateColorCodes(messagesFileManager.getMessagesConfig().getString("Update-2")));
+                logger.warning(ColorUtils.translateColorCodes(messagesFileManager.getMessagesConfig().getString("Update-3")));
             }
         });
     }
