@@ -76,7 +76,9 @@ public class ActionsMenu extends Menu {
                     Location location = new Location(target.getWorld(), x, y + 1, z, yaw, pitch);
                     player.teleport(location);
                     if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
-                        VanishAPI.hidePlayer(player);
+                        if (!(VanishAPI.isInvisible(player))){
+                            VanishAPI.hidePlayer(player);
+                        }
                         player.setGameMode(GameMode.SPECTATOR);
                     }else {
                         player.setGameMode(GameMode.SPECTATOR);

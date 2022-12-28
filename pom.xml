@@ -6,7 +6,7 @@
 
     <groupId>me.loving11ish</groupId>
     <artifactId>PlayerGUIAdvanced</artifactId>
-    <version>6.7.0</version>
+    <version>6.7.1</version>
     <packaging>jar</packaging>
 
     <name>PlayerGUIAdvanced</name>
@@ -74,19 +74,29 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>essentials-releases</id>
+            <url>https://repo.essentialsx.net/releases/</url>
+        </repository>
     </repositories>
 
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.19.3-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.LeonMangler</groupId>
             <artifactId>PremiumVanishAPI</artifactId>
             <version>2.7.11-2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.essentialsx</groupId>
+            <artifactId>EssentialsX</artifactId>
+            <version>2.19.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

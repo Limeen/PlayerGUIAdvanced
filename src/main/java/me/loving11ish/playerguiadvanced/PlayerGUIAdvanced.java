@@ -27,7 +27,9 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
 
     private PluginDescriptionFile pluginInfo = getDescription();
     private String pluginVersion = pluginInfo.getVersion();
+
     private static PlayerGUIAdvanced plugin;
+
     private static final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
     Logger logger = this.getLogger();
 
@@ -96,6 +98,13 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
             logger.info(ChatColor.AQUA + "PlayerGUIAdvanced - Enabling VanishAPI features");
         }
 
+        //Essentials hook check
+        if (Bukkit.getPluginManager().isPluginEnabled("Essentials")){
+            logger.info(ChatColor.AQUA + "PlayerGUIAdvanced - Successfully hooked into Essentials");
+            logger.info(ChatColor.AQUA + "PlayerGUIAdvanced - Enabling Essentials integration");
+        }
+        logger.info("-------------------------------------------");
+
         //Register commands here
         getCommand("players").setExecutor(new Players());
         getCommand("actions").setExecutor(new Actions());
@@ -108,6 +117,7 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerConnections(), this);
 
         //Plugin startup message
+        logger.info("-------------------------------------------");
         logger.info(ChatColor.AQUA + "PlayerGUIAdvanced - Plugin By Loving11ish");
         logger.info(ChatColor.AQUA + "PlayerGUIAdvanced - has been loaded successfully");
         logger.info(ChatColor.AQUA + "PlayerGUIAdvanced - Plugin Version " + pluginVersion);

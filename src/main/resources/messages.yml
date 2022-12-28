@@ -30,6 +30,7 @@ Reload-command-no-permission: "&4You do not have the permission &eplayergui.relo
 Show-1: "&4This command is only active if either SuperVanish or PremiumVanish are installed!"
 Show-2: "&4SuperVanish: &dhttps://www.spigotmc.org/resources/supervanish-be-invisible.1331/"
 Show-3: "&4PremiumVanish: &dhttps://www.spigotmc.org/resources/premiumvanish-stay-hidden-bungee-support.14404/"
+Show-command-player-not-vanished: "&eYou are not vanished and are already visible to other players!"
 Show-command-player-visible: "&eYou are now visible to other players"
 Show-command-no-permission: "&4You do not have the permission &eplayergui.show &4needed to run that command"
 
@@ -37,6 +38,7 @@ Show-command-no-permission: "&4You do not have the permission &eplayergui.show &
 Vanish-1: "&4This command is only active if either SuperVanish or PremiumVanish are installed!"
 Vanish-2: "&4SuperVanish: &dhttps://www.spigotmc.org/resources/supervanish-be-invisible.1331/"
 Vanish-3: "&4PremiumVanish: &dhttps://www.spigotmc.org/resources/premiumvanish-stay-hidden-bungee-support.14404/"
+Vanish-command-player-already-vanished: "&eYou are already vanished and are invisible to other players!"
 Vanish-command-player-invisible: "&eYou are now invisible to other players"
 Vanish-command-no-permission: "&4You do not have the permission &eplayergui.vanish &4needed to run that command"
 

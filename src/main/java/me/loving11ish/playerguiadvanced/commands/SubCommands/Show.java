@@ -35,9 +35,13 @@ public class Show extends SubCommand {
     public void perform(Player player, String[] args) {
         if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
             if (player.hasPermission("playergui.show")){
-                VanishAPI.showPlayer(player);
-                player.setGameMode(GameMode.SURVIVAL);
-                player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Show-command-player-visible")));
+                if (VanishAPI.isInvisible(player)){
+                    VanishAPI.showPlayer(player);
+                    player.setGameMode(GameMode.SURVIVAL);
+                    player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Show-command-player-visible")));
+                }else {
+                    player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Show-command-player-not-vanished")));
+                }
             }else {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Show-command-no-permission")));
             }

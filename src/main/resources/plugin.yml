@@ -2,7 +2,7 @@ name: PlayerGUIAdvanced
 version: ${project.version}
 main: me.loving11ish.playerguiadvanced.PlayerGUIAdvanced
 api-version: 1.13
-softdepend: [ SuperVanish, PremiumVanish ]
+softdepend: [ SuperVanish, PremiumVanish, Essentials ]
 authors: [ Loving11ish ]
 description: A simple GUI that shows admins information about all the players on the server and offers some simple moderation features.
 commands:

@@ -1,5 +1,6 @@
 package me.loving11ish.playerguiadvanced.menusystem.Menus;
 
+import com.earth2me.essentials.Essentials;
 import de.myzelyam.api.vanish.VanishAPI;
 import me.loving11ish.playerguiadvanced.menusystem.PaginatedMenu;
 import me.loving11ish.playerguiadvanced.menusystem.PlayerMenuUtility;
@@ -131,6 +132,15 @@ public class PlayerListMenu extends PaginatedMenu {
                             lore.add(ChatColor.WHITE + "Gamemode: " + ChatColor.LIGHT_PURPLE + players.get(index).getGameMode());
                             if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
                                 lore.add(ChatColor.WHITE + "Vanished: " + ChatColor.LIGHT_PURPLE + VanishAPI.isInvisible(players.get(index)));
+                            }
+                            if (Bukkit.getPluginManager().isPluginEnabled("Essentials")){
+                                Essentials essentials = (Essentials) Bukkit.getPluginManager().getPlugin("Essentials");
+                                List<String> essentialsVanished = essentials.getVanishedPlayers();
+                                if (essentialsVanished.contains(players.get(index).getName())){
+                                    lore.add(ChatColor.WHITE + "Ess Vanished: " + ChatColor.LIGHT_PURPLE + "true");
+                                }else {
+                                    lore.add(ChatColor.WHITE + "Ess Vanished: " + ChatColor.LIGHT_PURPLE + "false");
+                                }
                             }
                             lore.add(ChatColor.WHITE + "Has Fly: " + ChatColor.LIGHT_PURPLE + players.get(index).getAllowFlight());
                             lore.add(ChatColor.WHITE + "World: " + ChatColor.LIGHT_PURPLE + players.get(index).getWorld().getName());

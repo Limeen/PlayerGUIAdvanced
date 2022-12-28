@@ -35,9 +35,13 @@ public class Vanish extends SubCommand {
     public void perform(Player player, String[] args) {
         if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
             if (player.hasPermission("playergui.vanish")){
-                VanishAPI.hidePlayer(player);
-                player.setGameMode(GameMode.SPECTATOR);
-                player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Vanish-command-player-invisible")));
+                if (!(VanishAPI.isInvisible(player))){
+                    VanishAPI.hidePlayer(player);
+                    player.setGameMode(GameMode.SPECTATOR);
+                    player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Vanish-command-player-invisible")));
+                }else {
+                  player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Vanish-command-player-already-vanished")));
+                }
             }else {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Vanish-command-no-permission")));
             }
