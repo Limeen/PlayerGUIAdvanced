@@ -60,6 +60,7 @@ public final class PlayerGUIAdvanced extends JavaPlugin {
             logger.warning(ChatColor.RED + "PlayerGUIAdvanced - Is now disabling!");
             logger.warning(ChatColor.RED + "-------------------------------------------");
             Bukkit.getPluginManager().disablePlugin(this);
+            return;
         }else {
             logger.info(ChatColor.GREEN + "-------------------------------------------");
             logger.info(ChatColor.GREEN + "PlayerGUIAdvanced - A supported Minecraft version has been detected");
