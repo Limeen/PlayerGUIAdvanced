@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.logging.Logger;
 
-public class Show extends ConsoleCommand {
+public class ConsoleShow extends ConsoleCommand {
 
     Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
     FileConfiguration messagesConfig = PlayerGUIAdvanced.getPlugin().messagesFileManager.getMessagesConfig();

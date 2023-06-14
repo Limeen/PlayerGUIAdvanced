@@ -1,5 +1,9 @@
 package me.loving11ish.playerguiadvanced.commands;
 
+import me.loving11ish.playerguiadvanced.commands.ConsoleCommands.ConsoleHelp;
+import me.loving11ish.playerguiadvanced.commands.ConsoleCommands.ConsoleReload;
+import me.loving11ish.playerguiadvanced.commands.ConsoleCommands.ConsoleShow;
+import me.loving11ish.playerguiadvanced.commands.ConsoleCommands.ConsoleVanish;
 import me.loving11ish.playerguiadvanced.commands.SubCommands.Help;
 import me.loving11ish.playerguiadvanced.commands.SubCommands.Reload;
 import me.loving11ish.playerguiadvanced.commands.SubCommands.Show;
@@ -8,6 +12,7 @@ import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.utils.ColorUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -15,7 +20,6 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-
 
 public class CommandManager implements TabExecutor {
 
@@ -27,10 +31,10 @@ public class CommandManager implements TabExecutor {
 
     public CommandManager() {
         //Get the subcommands so we can access them in the command manager class(here)
-        consoleCommands.add(new me.loving11ish.playerguiadvanced.commands.ConsoleCommands.Reload());
-        consoleCommands.add(new me.loving11ish.playerguiadvanced.commands.ConsoleCommands.Help());
-        consoleCommands.add(new me.loving11ish.playerguiadvanced.commands.ConsoleCommands.Vanish());
-        consoleCommands.add(new me.loving11ish.playerguiadvanced.commands.ConsoleCommands.Show());
+        consoleCommands.add(new ConsoleReload());
+        consoleCommands.add(new ConsoleHelp());
+        consoleCommands.add(new ConsoleVanish());
+        consoleCommands.add(new ConsoleShow());
         subCommands.add(new Reload());
         subCommands.add(new Help());
         subCommands.add(new Vanish());
@@ -39,8 +43,7 @@ public class CommandManager implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
+        if (sender instanceof Player player) {
             if (args.length > 0) {
                 for (int i = 0; i < getSubCommands().size(); i++) {
                     if (args[0].equalsIgnoreCase(getSubCommands().get(i).getName())) {
@@ -48,7 +51,7 @@ public class CommandManager implements TabExecutor {
                     }
                 }
             }
-        } else if (!(sender instanceof Player)) {
+        } else if (sender instanceof ConsoleCommandSender) {
             if (args.length > 0) {
                 for (int i = 0; i < getConsoleCommands().size(); i++) {
                     if (args[0].equalsIgnoreCase(getConsoleCommands().get(i).getName())) {

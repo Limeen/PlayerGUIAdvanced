@@ -55,7 +55,8 @@ Update-check-failure: "&bPlayerGUIAdvanced &4- Unable to check for updates! - &c
 
 Player-only-command: "&4That command can only be executed by a player."
 
-Plugin-reload-successful: "&aThe config files have been reloaded!"
+Plugin-reload-begin: "&aBeginning plugin reload..."
+Plugin-reload-successful: "&aThe plugin reload is complete!"
 
 #Incorrect-command-syntax-console:
 Syntax-error-1: "&4Please provide an argument!"

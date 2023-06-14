@@ -1,13 +1,16 @@
 package me.loving11ish.playerguiadvanced.commands.SubCommands;
 
+import com.tcoded.folialib.FoliaLib;
 import me.loving11ish.playerguiadvanced.commands.SubCommand;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.utils.ColorUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Reload extends SubCommand {
 
@@ -31,11 +34,28 @@ public class Reload extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (player.hasPermission("playergui.reload")){
-            PlayerGUIAdvanced.getPlugin().reloadConfig();
-            PlayerGUIAdvanced.getPlugin().messagesFileManager.reloadMessagesConfig();
-            player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-successful")));
+            player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-begin")));
+            FoliaLib foliaLib = PlayerGUIAdvanced.getFoliaLib();
+            PlayerGUIAdvanced.getPlugin().onDisable();
+            foliaLib.getImpl().runLater(new Runnable() {
+                @Override
+                public void run() {
+                    Bukkit.getPluginManager().getPlugin("PlayerGUIAdvanced").onEnable();
+                }
+            }, 5L, TimeUnit.SECONDS);
+            foliaLib.getImpl().runLater(new Runnable() {
+                @Override
+                public void run() {
+                    PlayerGUIAdvanced.getPlugin().reloadConfig();
+                    PlayerGUIAdvanced.getPlugin().messagesFileManager.reloadMessagesConfig();
+                    PlayerGUIAdvanced.getPlugin().playersGUIManager.reloadPlayersGUIConfig();
+                    PlayerGUIAdvanced.getPlugin().actionsGUIManager.reloadActionsGUIConfig();
+                    PlayerGUIAdvanced.getPlugin().banGUIManager.reloadBanGUIConfig();
+                    player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-successful")));
+                }
+            }, 5L, TimeUnit.SECONDS);
         }else {
-            player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Reload-command-no-permission")));
+            player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleReload-command-no-permission")));
         }
     }
 

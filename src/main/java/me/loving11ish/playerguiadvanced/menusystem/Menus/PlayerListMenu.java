@@ -1,6 +1,8 @@
 package me.loving11ish.playerguiadvanced.menusystem.Menus;
 
 import com.earth2me.essentials.Essentials;
+import com.tcoded.folialib.FoliaLib;
+import com.tcoded.folialib.wrapper.WrappedTask;
 import de.myzelyam.api.vanish.VanishAPI;
 import me.loving11ish.playerguiadvanced.menusystem.PaginatedMenu;
 import me.loving11ish.playerguiadvanced.menusystem.PlayerMenuUtility;
@@ -19,15 +21,18 @@ import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import static org.bukkit.Bukkit.getServer;
 
 public class PlayerListMenu extends PaginatedMenu {
 
-    public static Integer taskID1;
+    public static WrappedTask wrappedTaskOne;
 
     FileConfiguration playersGUIConfig = PlayerGUIAdvanced.getPlugin().playersGUIManager.getPlayersGUIConfig();
     FileConfiguration messagesConfig = PlayerGUIAdvanced.getPlugin().messagesFileManager.getMessagesConfig();
+
+    private FoliaLib foliaLib = PlayerGUIAdvanced.getFoliaLib();
 
     public PlayerListMenu(PlayerMenuUtility playerMenuUtility) {
         super(playerMenuUtility);
@@ -55,11 +60,11 @@ public class PlayerListMenu extends PaginatedMenu {
             if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features")){
                 if (player.hasPermission("playergui.mod") || player.hasPermission("playergui.*") || player.isOp()){
                     new ActionsMenu(playerMenuUtility).open();
-                    Bukkit.getScheduler().cancelTask(taskID1);
+                    wrappedTaskOne.cancel();
                 }else {
                     player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Actions-command-no-permission")));
                     player.closeInventory();
-                    Bukkit.getScheduler().cancelTask(taskID1);
+                    wrappedTaskOne.cancel();
                 }
             }else if (!(PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features"))){
                 if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-simplemode-command")){
@@ -68,20 +73,20 @@ public class PlayerListMenu extends PaginatedMenu {
                             getServer().dispatchCommand(Bukkit.getConsoleSender(), string.replace("%target%", playerToMod));
                         }
                         player.closeInventory();
-                        Bukkit.getScheduler().cancelTask(taskID1);
+                        wrappedTaskOne.cancel();
                     }else if (!(PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Simplemode-console-sender"))){
                         for (String string : commandList){
                             player.performCommand(string.replace("%target%", playerToMod));
                         }
                         player.closeInventory();
-                        Bukkit.getScheduler().cancelTask(taskID1);
+                        wrappedTaskOne.cancel();
                     }
                 }
             }
         }else if (event.getCurrentItem().getType().equals(Material.BARRIER)) {
             //close inventory
             player.closeInventory();
-            Bukkit.getScheduler().cancelTask(taskID1);
+            wrappedTaskOne.cancel();
         }else if(event.getCurrentItem().getType().equals(Material.STONE_BUTTON)){
             if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equalsIgnoreCase("Previous Page")){
                 if (page == 0){
@@ -104,7 +109,7 @@ public class PlayerListMenu extends PaginatedMenu {
     @Override
     public void setMenuItems() {
         addMenuControls();
-        taskID1 = Bukkit.getScheduler().scheduleSyncRepeatingTask(PlayerGUIAdvanced.getPlugin(PlayerGUIAdvanced.class), new Runnable() {
+        wrappedTaskOne = foliaLib.getImpl().runTimerAsync(new Runnable() {
             @Override
             public void run() {
                 //The thing you will be looping through to place items
@@ -163,6 +168,6 @@ public class PlayerListMenu extends PaginatedMenu {
                     }
                 }
             }
-        }, 0, 40);
+        }, 1L, 5L, TimeUnit.SECONDS);
     }
 }

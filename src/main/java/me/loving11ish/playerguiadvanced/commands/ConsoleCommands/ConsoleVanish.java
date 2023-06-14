@@ -8,30 +8,29 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.logging.Logger;
 
-public class Reload extends ConsoleCommand {
+public class ConsoleVanish extends ConsoleCommand {
 
     Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
     FileConfiguration messagesConfig = PlayerGUIAdvanced.getPlugin().messagesFileManager.getMessagesConfig();
 
     @Override
     public String getName() {
-        return "reload";
+        return "vanish";
     }
 
     @Override
     public String getDescription() {
-        return ChatColor.AQUA + "This reloads the plugin config file.";
+        return ChatColor.AQUA + "If SuperVanish or PremiumVanish plugins are installed, this will set you into vanish.";
     }
 
     @Override
     public String getSyntax() {
-        return ChatColor.AQUA + "/pl reload";
+        return ChatColor.AQUA + "/pl vanish";
     }
 
     @Override
     public void perform(String[] args) {
-        PlayerGUIAdvanced.getPlugin().reloadConfig();
-        PlayerGUIAdvanced.getPlugin().messagesFileManager.reloadMessagesConfig();
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-successful")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Player-only-command")));
     }
+
 }
