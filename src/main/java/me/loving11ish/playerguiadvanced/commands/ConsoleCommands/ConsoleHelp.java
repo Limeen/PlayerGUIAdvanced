@@ -30,26 +30,26 @@ public class ConsoleHelp extends ConsoleCommand {
 
     @Override
     public void perform(String[] args) {
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-1")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-2")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-3")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-4")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-5")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-6")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-7")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-8")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-9")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-10")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-11")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-12")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-13")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-14")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-15")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-16")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-17")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-18")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-19")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-20")));
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleHelp-21")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-1")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-2")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-3")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-4")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-5")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-6")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-7")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-8")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-9")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-10")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-11")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-12")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-13")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-14")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-15")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-16")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-17")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-18")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-19")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-20")));
+        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Help-21")));
     }
 }

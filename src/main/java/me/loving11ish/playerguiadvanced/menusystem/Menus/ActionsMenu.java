@@ -1,6 +1,7 @@
 package me.loving11ish.playerguiadvanced.menusystem.Menus;
 
 import de.myzelyam.api.vanish.VanishAPI;
+import io.papermc.lib.PaperLib;
 import me.loving11ish.playerguiadvanced.menusystem.Menu;
 import me.loving11ish.playerguiadvanced.menusystem.PlayerMenuUtility;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
@@ -74,7 +75,7 @@ public class ActionsMenu extends Menu {
                     float yaw = target.getLocation().getYaw();
                     float pitch = target.getLocation().getPitch();
                     Location location = new Location(target.getWorld(), x, y + 1, z, yaw, pitch);
-                    player.teleport(location);
+                    PaperLib.teleportAsync(player, location);
                     if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
                         if (!(VanishAPI.isInvisible(player))){
                             VanishAPI.hidePlayer(player);
