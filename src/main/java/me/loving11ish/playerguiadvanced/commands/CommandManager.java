@@ -10,6 +10,7 @@ import me.loving11ish.playerguiadvanced.commands.SubCommands.Show;
 import me.loving11ish.playerguiadvanced.commands.SubCommands.Vanish;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.utils.ColorUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
@@ -19,13 +20,13 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class CommandManager implements TabExecutor {
 
+    ConsoleCommandSender console = Bukkit.getConsoleSender();
+    
     private ArrayList<SubCommand> subCommands = new ArrayList<>();
     private ArrayList<ConsoleCommand> consoleCommands = new ArrayList<>();
-    Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
 
     FileConfiguration messagesConfig = PlayerGUIAdvanced.getPlugin().messagesFileManager.getMessagesConfig();
 
@@ -43,7 +44,8 @@ public class CommandManager implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player player) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
             if (args.length > 0) {
                 for (int i = 0; i < getSubCommands().size(); i++) {
                     if (args[0].equalsIgnoreCase(getSubCommands().get(i).getName())) {
@@ -59,9 +61,9 @@ public class CommandManager implements TabExecutor {
                     }
                 }
             } else {
-                logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Syntax-error-1")));
-                logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Syntax-error-2")));
-                logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Syntax-error-3")));
+                console.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Syntax-error-1")));
+                console.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Syntax-error-2")));
+                console.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Syntax-error-3")));
             }
         }
         return true;

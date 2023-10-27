@@ -6,14 +6,15 @@ import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 
 public class ConsoleReload extends ConsoleCommand {
 
-    Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
+    ConsoleCommandSender console = Bukkit.getConsoleSender();
+
     FileConfiguration messagesConfig = PlayerGUIAdvanced.getPlugin().messagesFileManager.getMessagesConfig();
 
     @Override
@@ -33,25 +34,18 @@ public class ConsoleReload extends ConsoleCommand {
 
     @Override
     public void perform(String[] args) {
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-begin")));
+        console.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-begin")));
         FoliaLib foliaLib = PlayerGUIAdvanced.getFoliaLib();
         PlayerGUIAdvanced.getPlugin().onDisable();
-        foliaLib.getImpl().runLater(new Runnable() {
-            @Override
-            public void run() {
-                Bukkit.getPluginManager().getPlugin("PlayerGUIAdvanced").onEnable();
-            }
-        }, 5L, TimeUnit.SECONDS);
-        foliaLib.getImpl().runLater(new Runnable() {
-            @Override
-            public void run() {
-                PlayerGUIAdvanced.getPlugin().reloadConfig();
-                PlayerGUIAdvanced.getPlugin().messagesFileManager.reloadMessagesConfig();
-                PlayerGUIAdvanced.getPlugin().playersGUIManager.reloadPlayersGUIConfig();
-                PlayerGUIAdvanced.getPlugin().actionsGUIManager.reloadActionsGUIConfig();
-                PlayerGUIAdvanced.getPlugin().banGUIManager.reloadBanGUIConfig();
-                logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-successful")));
-            }
+        foliaLib.getImpl().runLater(() ->
+                Bukkit.getPluginManager().getPlugin("PlayerGUIAdvanced").onEnable(), 5L, TimeUnit.SECONDS);
+        foliaLib.getImpl().runLater(() -> {
+            PlayerGUIAdvanced.getPlugin().reloadConfig();
+            PlayerGUIAdvanced.getPlugin().messagesFileManager.reloadMessagesConfig();
+            PlayerGUIAdvanced.getPlugin().playersGUIManager.reloadPlayersGUIConfig();
+            PlayerGUIAdvanced.getPlugin().actionsGUIManager.reloadActionsGUIConfig();
+            PlayerGUIAdvanced.getPlugin().banGUIManager.reloadBanGUIConfig();
+            console.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-successful")));
         }, 5L, TimeUnit.SECONDS);
     }
 }

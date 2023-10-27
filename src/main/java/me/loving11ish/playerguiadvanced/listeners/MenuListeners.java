@@ -1,6 +1,7 @@
 package me.loving11ish.playerguiadvanced.listeners;
 
-import com.tcoded.folialib.wrapper.WrappedTask;
+
+import com.tcoded.folialib.wrapper.task.WrappedTask;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.menusystem.Menu;
 import me.loving11ish.playerguiadvanced.menusystem.Menus.PlayerListMenu;
@@ -41,7 +42,7 @@ public class MenuListeners implements Listener {
         InventoryHolder holder = event.getInventory().getHolder();
         if (holder instanceof Menu){
             if (((Menu) holder).getMenuName().equalsIgnoreCase(ColorUtils.translateColorCodes(playersGUIConfig.getString("Player-list-menu-title")))){
-                WrappedTask wrappedTask = PlayerListMenu.wrappedTaskOne;
+                WrappedTask wrappedTask = PlayerListMenu.GUIUpdateTask;
                 if (!wrappedTask.isCancelled()){
                     wrappedTask.cancel();
                 }

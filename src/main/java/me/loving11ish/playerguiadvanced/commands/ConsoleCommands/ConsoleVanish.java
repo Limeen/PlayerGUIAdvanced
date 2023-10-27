@@ -3,14 +3,15 @@ package me.loving11ish.playerguiadvanced.commands.ConsoleCommands;
 import me.loving11ish.playerguiadvanced.commands.ConsoleCommand;
 import me.loving11ish.playerguiadvanced.PlayerGUIAdvanced;
 import me.loving11ish.playerguiadvanced.utils.ColorUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-
-import java.util.logging.Logger;
 
 public class ConsoleVanish extends ConsoleCommand {
 
-    Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
+    ConsoleCommandSender console = Bukkit.getConsoleSender();
+
     FileConfiguration messagesConfig = PlayerGUIAdvanced.getPlugin().messagesFileManager.getMessagesConfig();
 
     @Override
@@ -30,7 +31,7 @@ public class ConsoleVanish extends ConsoleCommand {
 
     @Override
     public void perform(String[] args) {
-        logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Player-only-command")));
+        console.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Player-only-command")));
     }
 
 }

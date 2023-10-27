@@ -49,6 +49,7 @@ public class ActionsMenu extends Menu {
         String PlayerToOp = event.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
         String PlayerToMute = event.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
         switch (event.getCurrentItem().getType()){
+
             case WOODEN_AXE:
                 if (target == null){
                     player.closeInventory();
@@ -64,6 +65,7 @@ public class ActionsMenu extends Menu {
                     }
                 }
                 break;
+
             case PLAYER_HEAD:
                 if (target == null){
                     player.closeInventory();
@@ -87,6 +89,7 @@ public class ActionsMenu extends Menu {
                     player.closeInventory();
                 }
                 break;
+
             case LIME_CONCRETE:
                 if (actionsGUIConfig.getBoolean("Enable-op")){
                     if (player.hasPermission("playergui.op")||player.hasPermission("playergui.*")||player.isOp()){
@@ -100,6 +103,7 @@ public class ActionsMenu extends Menu {
                     player.closeInventory();
                 }
                 break;
+
             case RED_CONCRETE:
                 if (actionsGUIConfig.getBoolean("Enable-deop")){
                     if (player.hasPermission("playergui.deop")||player.hasPermission("playergui.*")||player.isOp()){
@@ -113,9 +117,11 @@ public class ActionsMenu extends Menu {
                     player.closeInventory();
                 }
                 break;
+
             case BARRIER:
                 new PlayerListMenu(playerMenuUtility).open();
                 break;
+
             case BEDROCK:
                 if (target == null){
                     player.closeInventory();
@@ -134,6 +140,7 @@ public class ActionsMenu extends Menu {
                     }
                 }
                 break;
+
             case FEATHER:
                 if (actionsGUIConfig.getBoolean("Enable-mute")){
                     player.performCommand(actionsGUIConfig.getString("Mute-command").replace("%target%", PlayerToMute));
@@ -143,6 +150,7 @@ public class ActionsMenu extends Menu {
                     player.closeInventory();
                 }
                 break;
+
             case DRAGON_BREATH:
                 if (actionsGUIConfig.getBoolean("Enable-unmute")){
                     player.performCommand(actionsGUIConfig.getString("Unmute-command").replace("%target%", PlayerToMute));
@@ -152,6 +160,7 @@ public class ActionsMenu extends Menu {
                     player.closeInventory();
                 }
                 break;
+
             case SHULKER_BOX:
                 if (target == null){
                     player.closeInventory();
@@ -161,6 +170,7 @@ public class ActionsMenu extends Menu {
                     player.openInventory(PlayerInv);
                 }
                 break;
+
             case ENDER_CHEST:
                 if (target == null){
                     player.closeInventory();
@@ -170,6 +180,7 @@ public class ActionsMenu extends Menu {
                     player.openInventory(PlayerEnder);
                 }
                 break;
+
             case RED_STAINED_GLASS_PANE:
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Disabled-GUI-Feature")));
                 player.closeInventory();

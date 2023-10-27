@@ -48,6 +48,7 @@ public class BanManagerMenu extends Menu {
         event.setCancelled(true);
         String target = event.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
         ArrayList<Player> onlinePlayersList = new ArrayList<>(Bukkit.getServer().getOnlinePlayers());
+
         for (int i = 0; i < onlinePlayersList.size(); i++){
             String playersname = onlinePlayersList.get(i).getPlayer().getName();
             if (!(onlineplayersmap.containsKey(onlinePlayersList.get(i).getPlayer()))){
@@ -59,13 +60,17 @@ public class BanManagerMenu extends Menu {
             player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Punish-command-invalid-player").replace("%target%", target)));
             return;
         }
+
         UUID uuid = playerMenuUtility.getPlayerToMod().getUniqueId();
         Player targetToBan = (Player) Bukkit.getOfflinePlayer(uuid);
         if (event.getCurrentItem().getType().equals(Material.PLAYER_HEAD)) {
             player.closeInventory();
-        }else if (event.getCurrentItem().getType().equals(Material.BARRIER))  {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.BARRIER))  {
             player.closeInventory();
         }
+
         if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-1-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-1-command").replace("%target%", target));
@@ -79,7 +84,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-2-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-2-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-2-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -92,7 +99,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-3-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-3-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-3-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -105,7 +114,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-4-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-4-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-4-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -118,7 +129,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-5-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-5-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-5-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -131,7 +144,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-6-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-6-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-6-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -144,7 +159,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-7-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-7-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-7-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -157,7 +174,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-8-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-8-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-8-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -170,7 +189,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-9-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-9-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-9-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -183,7 +204,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-10-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-10-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-10-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -196,7 +219,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-11-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-11-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-11-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -209,7 +234,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-12-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-12-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-12-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -222,7 +249,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-13-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-13-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-13-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -235,7 +264,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-14-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-14-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-14-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -248,7 +279,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-15-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-15-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-15-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -261,7 +294,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-16-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-16-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-16-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -274,7 +309,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-17-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-17-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-17-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -287,7 +324,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-18-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-18-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))) {
                 player.performCommand(banGUIConfig.getString("Ban-length-18-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")) {
@@ -300,7 +339,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-19-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-19-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-19-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -313,7 +354,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-20-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-20-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-20-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -326,7 +369,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-21-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-21-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-21-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -339,7 +384,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-22-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-22-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-22-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -352,7 +399,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-23-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-23-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-23-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -365,7 +414,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-24-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-24-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-24-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -378,7 +429,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-25-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-25-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-25-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -391,7 +444,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-26-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-26-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-26-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -404,7 +459,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-27-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-27-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-27-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -417,7 +474,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-28-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-28-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-28-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -430,7 +489,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-29-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-29-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-29-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -443,7 +504,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-30-material")))){
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-30-material")))){
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-30-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -456,7 +519,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-31-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-31-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-31-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -469,7 +534,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-32-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-32-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-32-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -482,7 +549,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-33-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-33-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-33-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -495,7 +564,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-34-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-34-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-34-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -508,7 +579,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-35-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-35-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))){
                 player.performCommand(banGUIConfig.getString("Ban-length-35-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")){
@@ -521,7 +594,9 @@ public class BanManagerMenu extends Menu {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Target-ban-exempt")));
                 player.closeInventory();
             }
-        }else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-36-material")))) {
+        }
+
+        else if (event.getCurrentItem().getType().equals(Material.getMaterial(banGUIConfig.getString("Ban-length-36-material")))) {
             if (!(targetToBan.hasPermission("playergui.exempt"))) {
                 player.performCommand(banGUIConfig.getString("Ban-length-36-command").replace("%target%", target));
                 if (banGUIConfig.getBoolean("Enable-banned-player-message")) {

@@ -8,15 +8,16 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
-import java.util.logging.Logger;
 
 public class Punish implements CommandExecutor {
 
-    Logger logger = PlayerGUIAdvanced.getPlugin().getLogger();
+    ConsoleCommandSender console = Bukkit.getConsoleSender();
+
     FileConfiguration messagesConfig = PlayerGUIAdvanced.getPlugin().messagesFileManager.getMessagesConfig();
     FileConfiguration banGUIConfig = PlayerGUIAdvanced.getPlugin().banGUIManager.getBanGUIConfig();
 
@@ -50,7 +51,7 @@ public class Punish implements CommandExecutor {
                 player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Punish-command-no-permission")));
             }
         }else{
-            logger.info(ColorUtils.translateColorCodes(messagesConfig.getString("Player-only-command")));
+            console.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Player-only-command")));
         }
         return true;
     }

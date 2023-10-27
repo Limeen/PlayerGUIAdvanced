@@ -37,22 +37,15 @@ public class Reload extends SubCommand {
             player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-begin")));
             FoliaLib foliaLib = PlayerGUIAdvanced.getFoliaLib();
             PlayerGUIAdvanced.getPlugin().onDisable();
-            foliaLib.getImpl().runLater(new Runnable() {
-                @Override
-                public void run() {
-                    Bukkit.getPluginManager().getPlugin("PlayerGUIAdvanced").onEnable();
-                }
-            }, 5L, TimeUnit.SECONDS);
-            foliaLib.getImpl().runLater(new Runnable() {
-                @Override
-                public void run() {
-                    PlayerGUIAdvanced.getPlugin().reloadConfig();
-                    PlayerGUIAdvanced.getPlugin().messagesFileManager.reloadMessagesConfig();
-                    PlayerGUIAdvanced.getPlugin().playersGUIManager.reloadPlayersGUIConfig();
-                    PlayerGUIAdvanced.getPlugin().actionsGUIManager.reloadActionsGUIConfig();
-                    PlayerGUIAdvanced.getPlugin().banGUIManager.reloadBanGUIConfig();
-                    player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-successful")));
-                }
+            foliaLib.getImpl().runLater(() ->
+                    Bukkit.getPluginManager().getPlugin("PlayerGUIAdvanced").onEnable(), 5L, TimeUnit.SECONDS);
+            foliaLib.getImpl().runLater(() -> {
+                PlayerGUIAdvanced.getPlugin().reloadConfig();
+                PlayerGUIAdvanced.getPlugin().messagesFileManager.reloadMessagesConfig();
+                PlayerGUIAdvanced.getPlugin().playersGUIManager.reloadPlayersGUIConfig();
+                PlayerGUIAdvanced.getPlugin().actionsGUIManager.reloadActionsGUIConfig();
+                PlayerGUIAdvanced.getPlugin().banGUIManager.reloadBanGUIConfig();
+                player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("Plugin-reload-successful")));
             }, 5L, TimeUnit.SECONDS);
         }else {
             player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("ConsoleReload-command-no-permission")));
