@@ -93,15 +93,15 @@ public class PlayerListMenu extends PaginatedMenu {
             GUIUpdateTask.cancel();
         }
 
-        else if(event.getCurrentItem().getType().equals(Material.STONE_BUTTON)){
-            if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equalsIgnoreCase("Previous Page")){
+        else if(event.getCurrentItem().getType().equals(Material.ARROW)){
+            if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equalsIgnoreCase("Page précédente")){
                 if (page == 0){
                     player.sendMessage(ColorUtils.translateColorCodes(PlayerGUIAdvanced.getPlugin().getConfig().getString("Player-list-menu-first-page")));
                 }else{
                     page = page - 1;
                     super.open();
                 }
-            }else if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equalsIgnoreCase("Next Page")){
+            }else if (ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()).equalsIgnoreCase("Page suivante")){
                 if (!((index + 1) >= players.size())){
                     page = page + 1;
                     super.open();
@@ -135,36 +135,8 @@ public class PlayerListMenu extends PaginatedMenu {
                         ItemMeta meta = playerHead.getItemMeta();
                         meta.setDisplayName(players.get(index).getName());
                         ArrayList<String> lore = new ArrayList<>();
-                        lore.add(ChatColor.WHITE + "Player Health: " + ChatColor.LIGHT_PURPLE + players.get(index).getHealth());
-                        lore.add(ChatColor.WHITE + "Player Food: " + ChatColor.LIGHT_PURPLE + players.get(index).getFoodLevel());
-                        lore.add(ChatColor.WHITE + "Player XP: " + ChatColor.LIGHT_PURPLE + players.get(index).getLevel());
-                        lore.add(ChatColor.WHITE + "Gamemode: " + ChatColor.LIGHT_PURPLE + players.get(index).getGameMode());
-                        if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")){
-                            lore.add(ChatColor.WHITE + "Vanished: " + ChatColor.LIGHT_PURPLE + VanishAPI.isInvisible(players.get(index)));
-                        }
-                        if (Bukkit.getPluginManager().isPluginEnabled("Essentials")){
-                            Essentials essentials = (Essentials) Bukkit.getPluginManager().getPlugin("Essentials");
-                            List<String> essentialsVanished = essentials.getVanishedPlayers();
-                            if (essentialsVanished.contains(players.get(index).getName())){
-                                lore.add(ChatColor.WHITE + "Ess Vanished: " + ChatColor.LIGHT_PURPLE + "true");
-                            }else {
-                                lore.add(ChatColor.WHITE + "Ess Vanished: " + ChatColor.LIGHT_PURPLE + "false");
-                            }
-                        }
-                        lore.add(ChatColor.WHITE + "Has Fly: " + ChatColor.LIGHT_PURPLE + players.get(index).getAllowFlight());
-                        lore.add(ChatColor.WHITE + "World: " + ChatColor.LIGHT_PURPLE + players.get(index).getWorld().getName());
-                        lore.add(ChatColor.WHITE + "Is OP: " + ChatColor.LIGHT_PURPLE + players.get(index).getServer().getOperators().contains(players.get(index).getServer().getPlayerExact(players.get(index).getName())));
-                        lore.add(ChatColor.GRAY + "==============================");
-                        lore.add(ChatColor.WHITE + "UUID: " + ChatColor.BLUE + "" + ChatColor.ITALIC + players.get(index).getPlayer().getUniqueId());
-                        lore.add(ChatColor.GRAY + "==============================");
-                        if (PlayerGUIAdvanced.getPlugin().getConfig().getBoolean("Enable-advanced-GUI-features")){
-                            lore.add(ChatColor.GREEN + "Click to moderate this player");
-                        }else {
-                            lore.add(ChatColor.GREEN + "Click Me");
-                        }
+                        lore.add(ChatColor.GRAY + "> Voir le profil");
                         meta.setLore(lore);
-
-                        meta.getPersistentDataContainer().set(new NamespacedKey(PlayerGUIAdvanced.getPlugin(), "uuid"), PersistentDataType.STRING, players.get(index).getUniqueId().toString());
                         playerHead.setItemMeta(meta);
 
                         inventory.setItem(index, playerHead);
